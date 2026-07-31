@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle, X, Send, Loader2 } from "lucide-react";
+import Link from "next/link";
+import { MessageCircle, X, Send, Loader2, Search, CalendarCheck } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface ChatMessage {
@@ -12,8 +13,48 @@ interface ChatMessage {
 const GREETING: ChatMessage = {
   role: "assistant",
   content:
-    "Hi! I'm the Novus assistant. Ask me about our services, how we work, or how to get started.",
+    "Welcome to Novus Solutions. Pick a question below to begin, or type your own.",
 };
+
+const STARTER_QUESTIONS = [
+  "What services does Novus offer?",
+  "How does the free audit work?",
+  "How long does a build take?",
+  "How do I get started?",
+];
+
+/** Renders assistant text with light markdown support (bold + bullet lists). */
+function FormattedText({ text }: { text: string }) {
+  const withBold = (line: string) =>
+    line.split(/(\*\*[^*]+\*\*)/g).map((chunk, i) =>
+      chunk.startsWith("**") && chunk.endsWith("**") ? (
+        <strong key={i} className="font-semibold text-white">
+          {chunk.slice(2, -2)}
+        </strong>
+      ) : (
+        <span key={i}>{chunk}</span>
+      )
+    );
+
+  const lines = text.split("\n").filter((l) => l.trim() !== "");
+
+  return (
+    <div className="space-y-1.5">
+      {lines.map((line, i) => {
+        const bullet = line.match(/^\s*[-*•]\s+(.*)$/);
+        if (bullet) {
+          return (
+            <div key={i} className="flex gap-2">
+              <span className="mt-[7px] h-1 w-1 shrink-0 bg-electric-500" />
+              <span>{withBold(bullet[1])}</span>
+            </div>
+          );
+        }
+        return <p key={i}>{withBold(line)}</p>;
+      })}
+    </div>
+  );
+}
 
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
@@ -23,17 +64,20 @@ export default function ChatWidget() {
   const [errored, setErrored] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
+  const showStarters = messages.length === 1 && !loading;
+  const showCta = messages.length > 1 && !loading;
+
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, open, loading]);
 
-  async function sendMessage() {
-    const text = input.trim();
-    if (!text || loading) return;
+  async function send(text: string) {
+    const trimmed = text.trim();
+    if (!trimmed || loading) return;
 
-    const nextMessages: ChatMessage[] = [...messages, { role: "user", content: text }];
+    const nextMessages: ChatMessage[] = [...messages, { role: "user", content: trimmed }];
     setMessages(nextMessages);
     setInput("");
     setLoading(true);
@@ -49,10 +93,7 @@ export default function ChatWidget() {
       });
 
       const data = await res.json();
-
-      if (!res.ok || !data.reply) {
-        throw new Error(data?.error ?? "Chat request failed");
-      }
+      if (!res.ok || !data.reply) throw new Error(data?.error ?? "Chat request failed");
 
       setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
     } catch {
@@ -62,7 +103,7 @@ export default function ChatWidget() {
         {
           role: "assistant",
           content:
-            "Sorry, something went wrong on my end. You can reach us directly at contact@novussolutions.co in the meantime.",
+            "Sorry — something went wrong on my end. You can reach us directly at contact@novussolutions.co in the meantime.",
         },
       ]);
     } finally {
@@ -73,7 +114,7 @@ export default function ChatWidget() {
   function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      sendMessage();
+      send(input);
     }
   }
 
@@ -86,23 +127,28 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.97 }}
             transition={{ duration: 0.2 }}
-            className="mb-4 flex h-[70vh] max-h-[520px] w-[92vw] max-w-[380px] flex-col overflow-hidden border border-white/10 bg-navy-900 shadow-2xl"
+            className="mb-4 flex h-[72vh] max-h-[560px] w-[92vw] max-w-[390px] flex-col overflow-hidden border border-white/10 bg-navy-900 shadow-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-white/10 bg-navy-800/60 px-5 py-4">
-              <div className="flex items-center gap-2.5">
-                <span className="h-2 w-2 rotate-45 bg-electric-500" />
-                <span className="text-[13px] font-semibold uppercase tracking-[0.16em] text-white">
-                  Novus Assistant
-                </span>
+            <div className="border-b border-white/10 bg-navy-800/60 px-5 py-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <Search size={15} className="text-electric-500" />
+                  <span className="text-[13px] font-semibold uppercase tracking-[0.18em] text-white">
+                    Ask Novus
+                  </span>
+                </div>
+                <button
+                  onClick={() => setOpen(false)}
+                  aria-label="Close chat"
+                  className="p-1 text-silver-400 transition-colors hover:text-white"
+                >
+                  <X size={18} />
+                </button>
               </div>
-              <button
-                onClick={() => setOpen(false)}
-                aria-label="Close chat"
-                className="p-1 text-silver-400 transition-colors hover:text-white"
-              >
-                <X size={18} />
-              </button>
+              <p className="mt-1 text-[11px] uppercase tracking-[0.14em] text-silver-500">
+                AI Solutions · Chicago
+              </p>
             </div>
 
             {/* Messages */}
@@ -113,22 +159,57 @@ export default function ChatWidget() {
                   className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`max-w-[85%] whitespace-pre-wrap px-4 py-2.5 text-[14px] leading-relaxed ${
+                    className={`max-w-[86%] px-4 py-2.5 text-[14px] leading-relaxed ${
                       m.role === "user"
                         ? "bg-electric-500 text-white"
                         : "border border-white/10 bg-navy-800/60 text-silver-200"
                     }`}
                   >
-                    {m.content}
+                    {m.role === "assistant" ? <FormattedText text={m.content} /> : m.content}
                   </div>
                 </div>
               ))}
+
               {loading && (
                 <div className="flex justify-start">
                   <div className="flex items-center gap-2 border border-white/10 bg-navy-800/60 px-4 py-2.5 text-silver-400">
                     <Loader2 size={14} className="animate-spin" />
                     <span className="text-[13px]">Thinking…</span>
                   </div>
+                </div>
+              )}
+
+              {/* Starter question chips */}
+              {showStarters && (
+                <div className="space-y-2 pt-1">
+                  {STARTER_QUESTIONS.map((q, i) => (
+                    <button
+                      key={q}
+                      onClick={() => send(q)}
+                      className="flex w-full items-center gap-2.5 border border-white/15 px-3.5 py-2.5 text-left text-[13px] text-silver-300 transition-all hover:border-electric-500 hover:text-white"
+                    >
+                      <span className="text-[11px] font-semibold text-electric-500">
+                        {i + 1}
+                      </span>
+                      {q}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {/* Next steps CTA */}
+              {showCta && (
+                <div className="border border-white/10 bg-navy-800/40 p-4">
+                  <p className="text-[11px] uppercase tracking-[0.16em] text-silver-500">
+                    Next steps
+                  </p>
+                  <Link
+                    href="/contact"
+                    onClick={() => setOpen(false)}
+                    className="mt-3 flex items-center justify-center gap-2 bg-electric-500 py-2.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-white transition-opacity hover:opacity-90"
+                  >
+                    <CalendarCheck size={14} /> Book a free consultation
+                  </Link>
                 </div>
               )}
             </div>
@@ -141,11 +222,11 @@ export default function ChatWidget() {
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={handleKeyDown}
                   rows={1}
-                  placeholder="Ask a question…"
+                  placeholder="Type your inquiry…"
                   className="max-h-24 flex-1 resize-none border border-white/15 bg-navy-800/50 px-3.5 py-2.5 text-[14px] text-white placeholder:text-silver-500 focus:border-electric-500 focus:outline-none"
                 />
                 <button
-                  onClick={sendMessage}
+                  onClick={() => send(input)}
                   disabled={loading || !input.trim()}
                   aria-label="Send message"
                   className="flex h-[42px] w-[42px] shrink-0 items-center justify-center bg-electric-500 text-white transition-opacity disabled:cursor-not-allowed disabled:opacity-40"
