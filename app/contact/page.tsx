@@ -96,7 +96,7 @@ export default function ContactPage() {
                   Prefer to just grab a time?
                 </h2>
                 <p className="mt-3 max-w-[52ch] text-[15px] leading-relaxed text-silver-400">
-                  Skip the form and book a free 15-minute call directly on our calendar — pick
+                  Skip the form and book a free 30-minute call directly on our calendar — pick
                   whatever slot works for you.
                 </p>
               </div>

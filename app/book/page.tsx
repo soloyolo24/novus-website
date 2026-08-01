@@ -6,13 +6,13 @@ import { BOOKING_URL } from "../lib/data";
 export const metadata: Metadata = {
   title: "Book a Call",
   description:
-    "Book a free 15-minute intro call with Novus Solutions. See a live demo and get a straight answer on what's worth fixing first.",
+    "Book a free 30-minute intro call with Novus Solutions. See a live demo and get a straight answer on what's worth fixing first.",
 };
 
 const expectations = [
   {
     icon: Clock,
-    title: "15 minutes, no prep needed",
+    title: "30 minutes, no prep needed",
     body: "A quick call to understand your business and what's currently falling through the cracks — missed calls, slow follow-up, an outdated site.",
   },
   {
@@ -41,7 +41,7 @@ export default function BookPage() {
               Let&apos;s see what&apos;s worth fixing.
             </h1>
             <p className="mt-7 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-400">
-              A free 15-minute intro call. We&apos;ll look at how your business currently handles
+              A free 30-minute intro call. We&apos;ll look at how your business currently handles
               calls, messages, and follow-up, and show you what an AI assistant looks like for a
               business like yours.
             </p>
