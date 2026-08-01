@@ -111,7 +111,7 @@ export default function Footer() {
             </ul>
 
             <Link
-              href="/contact"
+              href="/book"
               className="mt-7 inline-flex items-center gap-2 border-b border-electric-500 pb-1 text-[12px] uppercase tracking-[0.14em] text-white"
             >
               Book a call <ArrowUpRight size={14} />

@@ -92,7 +92,7 @@ export default function ServicesPage() {
               That&apos;s what the audit is for. Thirty minutes, no cost, and a straight answer about
               what&apos;s worth fixing first.
             </p>
-            <Link href="/contact" className="btn-primary mt-9">
+            <Link href="/book" className="btn-primary mt-9">
               Book a call <ArrowUpRight size={15} />
             </Link>
           </Reveal>

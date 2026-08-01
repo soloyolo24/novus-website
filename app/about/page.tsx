@@ -138,7 +138,7 @@ export default function AboutPage() {
             <h2 className="mx-auto max-w-[18ch] text-display-md font-bold text-white">
               Want to see what we&apos;d find in your business?
             </h2>
-            <Link href="/contact" className="btn-primary mt-9">
+            <Link href="/book" className="btn-primary mt-9">
               Book a call <ArrowUpRight size={15} />
             </Link>
           </Reveal>

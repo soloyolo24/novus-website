@@ -37,7 +37,7 @@ export default function HomePage() {
 
           <Reveal delay={0.24}>
             <div className="mt-11 flex flex-wrap gap-4">
-              <Link href="/contact" className="btn-primary">
+              <Link href="/book" className="btn-primary">
                 Book a call <ArrowRight size={15} />
               </Link>
               <Link href="/services" className="btn-secondary">
@@ -220,7 +220,7 @@ export default function HomePage() {
               slipping away, and tell you straight whether we can help.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn-primary">
+              <Link href="/book" className="btn-primary">
                 Book a call <ArrowRight size={15} />
               </Link>
               <Link href="/pricing" className="btn-secondary">

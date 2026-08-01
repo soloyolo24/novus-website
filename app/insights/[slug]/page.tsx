@@ -83,7 +83,7 @@ export default async function ArticlePage({
                 The audit is free and takes about thirty minutes. We&apos;ll tell you straight what we
                 find, whether or not there&apos;s work in it for us.
               </p>
-              <Link href="/contact" className="btn-primary mt-6">
+              <Link href="/book" className="btn-primary mt-6">
                 Book a call <ArrowUpRight size={15} />
               </Link>
             </div>

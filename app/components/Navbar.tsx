@@ -70,7 +70,7 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
-            href="/contact"
+            href="/book"
             className="inline-flex border border-white/20 px-3.5 py-2 text-[10.5px] uppercase tracking-[0.12em] text-silver-200 transition-all hover:border-electric-500 hover:bg-electric-500 hover:text-white sm:px-5 sm:py-2.5 sm:text-[11px] sm:tracking-[0.16em]"
           >
             Book a call
@@ -108,7 +108,7 @@ export default function Navbar() {
               ))}
               <li>
                 <Link
-                  href="/contact"
+                  href="/book"
                   className="mt-4 block bg-electric-500 py-3.5 text-center text-[12px] uppercase tracking-[0.16em] font-semibold text-white"
                 >
                   Book a call

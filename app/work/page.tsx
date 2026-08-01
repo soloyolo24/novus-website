@@ -111,7 +111,7 @@ export default function WorkPage() {
           <h2 className="mx-auto max-w-[20ch] text-display-md font-bold text-white">
             Want to see one of these running on your business?
           </h2>
-          <Link href="/contact" className="btn-primary mt-9">
+          <Link href="/book" className="btn-primary mt-9">
             Request a demo <ArrowUpRight size={15} />
           </Link>
         </div>
