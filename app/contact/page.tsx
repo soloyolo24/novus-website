@@ -10,10 +10,12 @@ import {
   Instagram,
   Check,
   ArrowRight,
+  ArrowUpRight,
+  CalendarCheck,
   Loader2,
 } from "lucide-react";
 import Reveal from "../components/Reveal";
-import { services } from "../lib/data";
+import { services, BOOKING_URL } from "../lib/data";
 
 const budgets = ["Under $2k", "$2k – $5k", "$5k – $10k", "$10k+", "Not sure yet"];
 
@@ -80,6 +82,33 @@ export default function ContactPage() {
               Tell us a bit about your business and we&apos;ll come back within one working day. The
               audit is free and there&apos;s no obligation attached to it.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Direct booking */}
+      <section className="border-b border-white/10 bg-navy-950/50">
+        <div className="shell py-14 md:py-16">
+          <Reveal>
+            <div className="flex flex-col items-start justify-between gap-6 border border-white/10 bg-navy-800/40 p-8 md:flex-row md:items-center md:p-10">
+              <div>
+                <h2 className="text-[13px] uppercase tracking-[0.22em] text-silver-500">
+                  Prefer to just grab a time?
+                </h2>
+                <p className="mt-3 max-w-[52ch] text-[15px] leading-relaxed text-silver-400">
+                  Skip the form and book a free 15-minute call directly on our calendar — pick
+                  whatever slot works for you.
+                </p>
+              </div>
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary shrink-0"
+              >
+                <CalendarCheck size={15} /> Book a time <ArrowUpRight size={15} />
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>

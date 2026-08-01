@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { MessageCircle, X, Send, Loader2, Search, CalendarCheck } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { BOOKING_URL } from "../lib/data";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -203,13 +203,14 @@ export default function ChatWidget() {
                   <p className="text-[11px] uppercase tracking-[0.16em] text-silver-500">
                     Next steps
                   </p>
-                  <Link
-                    href="/contact"
-                    onClick={() => setOpen(false)}
+                  <a
+                    href={BOOKING_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="mt-3 flex items-center justify-center gap-2 bg-electric-500 py-2.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-white transition-opacity hover:opacity-90"
                   >
                     <CalendarCheck size={14} /> Book a free consultation
-                  </Link>
+                  </a>
                 </div>
               )}
             </div>

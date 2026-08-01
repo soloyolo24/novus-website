@@ -11,6 +11,13 @@ import {
 } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
+/* BOOKING                                                             */
+/* ------------------------------------------------------------------ */
+
+// Google Calendar Appointment Schedule — update here if the link ever changes.
+export const BOOKING_URL = "https://calendar.app.google/4KWk6hrffNyhHPZu9";
+
+/* ------------------------------------------------------------------ */
 /* SERVICES                                                            */
 /* ------------------------------------------------------------------ */
 
