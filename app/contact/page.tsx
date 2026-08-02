@@ -40,11 +40,14 @@ export default function ContactPage() {
     setStatus("sending");
 
     try {
-      // Point this at your Apps Script Web App URL or /api/contact route
+      // Points at the Apps Script Web App URL. Apps Script doesn't return
+      // proper CORS headers, so this uses "no-cors" — the request still
+      // reaches the script and runs, we just can't read its response back.
       const endpoint = process.env.NEXT_PUBLIC_LEAD_ENDPOINT ?? "";
       if (endpoint) {
         await fetch(endpoint, {
           method: "POST",
+          mode: "no-cors",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams({
             name: form.name,
