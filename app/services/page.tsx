@@ -7,7 +7,7 @@ import { services } from "../lib/data";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Website development, AI chatbots, phone assistants, SEO, paid advertising, email marketing, branding, and UI/UX design for local business.",
+    "Website development, AI chatbots, phone assistants, SEO, paid advertising, email marketing, branding, and UI/UX design for automotive business.",
 };
 
 export default function ServicesPage() {

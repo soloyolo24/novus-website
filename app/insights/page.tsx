@@ -7,7 +7,7 @@ import { posts } from "../lib/data";
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Practical notes on local business operations, AI automation, SEO, and the systems that keep customers from slipping away.",
+    "Practical notes on automotive business operations, AI automation, SEO, and the systems that keep customers from slipping away.",
 };
 
 function formatDate(iso: string) {
@@ -34,7 +34,7 @@ export default function InsightsPage() {
               Notes from the work.
             </h1>
             <p className="mt-7 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-400">
-              Practical writing on what actually moves the needle for local business — no growth
+              Practical writing on what actually moves the needle for automotive business — no growth
               hacking, no listicles.
             </p>
           </Reveal>

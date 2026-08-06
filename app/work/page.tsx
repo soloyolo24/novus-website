@@ -26,7 +26,7 @@ export default function WorkPage() {
               Things we&apos;ve built, running live.
             </h1>
             <p className="mt-7 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-400">
-              We build working demos on real local businesses before we pitch them. Each of these is
+              We build working demos on real automotive businesses before we pitch them. Each of these is
               something you can actually open and use, not a mockup.
             </p>
           </Reveal>

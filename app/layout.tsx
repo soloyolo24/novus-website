@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "Novus builds websites, AI chatbots, phone assistants, and follow-up systems for local Chicago businesses. Never miss another customer. Book a call.",
   keywords: [
     "AI automation Chicago",
-    "local business AI",
+    "automotive business AI",
     "AI chatbot",
     "AI phone assistant",
     "website development Chicago",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Novus Solutions | AI Automation for Local Business",
     description:
-      "Websites, AI assistants, and follow-up systems for Chicago local business. Book a call.",
+      "Websites, AI assistants, and follow-up systems for Chicago automotive business. Book a call.",
     url: "https://novussolutions.co",
     siteName: "Novus Solutions",
     type: "website",

@@ -31,7 +31,7 @@ export default function HomePage() {
           <Reveal delay={0.16}>
             <p className="mt-8 max-w-[54ch] text-[17px] leading-relaxed text-silver-400">
               We build the websites, AI assistants, and follow-up systems that make sure your
-              local business never loses another customer.
+              automotive business never loses another customer.
             </p>
           </Reveal>
 
@@ -142,7 +142,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Selected work"
               title="Concepts, live and working"
-              lede="Working systems on real local businesses, built before we ever pitch — so you see it running, not a slide about it."
+              lede="Working systems on real automotive businesses, built before we ever pitch — so you see it running, not a slide about it."
               link={{ href: "/work", label: "View all work" }}
             />
           </Reveal>

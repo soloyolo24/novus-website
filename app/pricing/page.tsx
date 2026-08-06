@@ -7,7 +7,7 @@ import { tiers } from "../lib/data";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Transparent packages for local business. Foundation, Growth, and Partnership tiers — every one includes a free audit and monthly reporting.",
+    "Transparent packages for automotive business. Foundation, Growth, and Partnership tiers — every one includes a free audit and monthly reporting.",
 };
 
 const faqs = [

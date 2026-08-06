@@ -8,7 +8,7 @@ import { processSteps } from "../lib/data";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Novus is a Chicago AI automation studio building growth systems for local business. Audit first, build second.",
+    "Novus is a Chicago AI automation studio building growth systems for automotive business. Audit first, build second.",
 };
 
 const values = [
@@ -45,7 +45,7 @@ export default function AboutPage() {
               About
             </div>
             <h1 className="mt-6 max-w-[18ch] text-display-lg font-bold text-gradient">
-              We build the systems most local businesses never get around to.
+              We build the systems most automotive businesses never get around to.
             </h1>
             <p className="mt-7 max-w-[60ch] text-[16.5px] leading-relaxed text-silver-400">
               Not because owners don&apos;t care — because they&apos;re running the business. The

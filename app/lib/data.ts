@@ -89,7 +89,7 @@ export const services: Service[] = [
     title: "Missed-Call Text-Back",
     short: "Every unanswered call gets an instant text before the caller moves on.",
     description:
-      "When a call goes unanswered, an automatic text goes out within seconds — so the customer hears from you before they dial the next business on the list. It's one of the cheapest, highest-return systems a local business can add.",
+      "When a call goes unanswered, an automatic text goes out within seconds — so the customer hears from you before they dial the next business on the list. It's one of the cheapest, highest-return systems a automotive business can add.",
     icon: PhoneMissed,
     bullets: [
       "Automatic text within seconds of a missed call",
@@ -105,7 +105,7 @@ export const services: Service[] = [
     title: "Review Generation & Response",
     short: "Automated review requests after service, plus AI-assisted responses.",
     description:
-      "Reviews are how local businesses get found and trusted. We set up automatic review requests after a job is done, and AI-assisted drafting for responses — especially the tricky negative ones that need a careful, professional reply.",
+      "Reviews are how automotive businesses get found and trusted. We set up automatic review requests after a job is done, and AI-assisted drafting for responses — especially the tricky negative ones that need a careful, professional reply.",
     icon: Star,
     bullets: [
       "Automatic review requests after service",
@@ -330,7 +330,7 @@ export interface Post {
 export const posts: Post[] = [
   {
     slug: "missed-calls-cost",
-    title: "What a missed call actually costs a local business",
+    title: "What a missed call actually costs a automotive business",
     category: "Operations",
     date: "2026-07-12",
     readTime: "4 min",
@@ -363,7 +363,7 @@ export const posts: Post[] = [
     date: "2026-06-15",
     readTime: "5 min",
     excerpt:
-      "Skip the keyword theatre. Four unglamorous fixes account for most of the ranking gains a local business will ever see.",
+      "Skip the keyword theatre. Four unglamorous fixes account for most of the ranking gains a automotive business will ever see.",
     body: [
       "Claim and fully complete the Google Business Profile. Not partially — every field, real photos, correct categories, accurate hours.",
       "Make your name, address, and phone identical everywhere they appear. Inconsistencies across Yelp, Apple Maps, and Bing quietly suppress rankings.",
