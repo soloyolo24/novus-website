@@ -45,12 +45,11 @@ export default function AboutPage() {
               About
             </div>
             <h1 className="mt-6 max-w-[18ch] text-display-lg font-bold text-gradient">
-              We build the systems most automotive businesses never get around to.
+              We build the systems that help automotive shops reach their full potential.
             </h1>
             <p className="mt-7 max-w-[60ch] text-[16.5px] leading-relaxed text-silver-400">
-              Not because owners don&apos;t care — because they&apos;re running the business. The
-              backup nobody set up, the call nobody answered, the lead nobody followed up on. That&apos;s
-              the work we do.
+              The backup nobody set up, the call nobody answered, the lead nobody followed up on —
+              that&apos;s the work we do.
             </p>
           </Reveal>
         </div>

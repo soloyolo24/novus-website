@@ -31,7 +31,7 @@ export default function Footer() {
               <span className="text-[18px] font-bold tracking-[0.24em] text-white">NOVUS</span>
             </Link>
             <p className="mt-5 max-w-[34ch] text-[14.5px] leading-relaxed text-silver-500">
-              AI Automation and Growth Systems for Automotive Businesses. For Chicago, By Chicago.
+              AI Automation and Growth Systems for Automotive Businesses For Chicago, By Chicago.
             </p>
             <div className="mt-6 flex gap-3">
               <a

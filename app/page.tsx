@@ -82,7 +82,7 @@ export default function HomePage() {
           <Reveal>
             <SectionHeading
               eyebrow="Services"
-              title="Built to capture every opportunity"
+              title="We capture every opportunity"
               link={{ href: "/services", label: "View all services" }}
             />
           </Reveal>
@@ -118,7 +118,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="The approach"
             title="Audit first. Build second."
-            lede="We don't sell a package before we understand the business. Every engagement starts with a free audit of how customers actually find you, reach you, and hear back from you."
+            lede="Every engagement starts with a free audit — we pinpoint exactly where your shop is losing customers before we build a thing. No guesswork, no wasted spend."
           />
         </Reveal>
 
@@ -142,7 +142,7 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Selected work"
               title="Concepts, live and working"
-              lede="Working systems on real automotive businesses, built before we ever pitch — so you see it running, not a slide about it."
+              lede="Working systems on real automotive businesses, built before we ever pitch."
               link={{ href: "/work", label: "View all work" }}
             />
           </Reveal>
@@ -216,8 +216,8 @@ export default function HomePage() {
               Let&apos;s build the future.
             </h2>
             <p className="mx-auto mt-6 max-w-[56ch] text-[16px] leading-relaxed text-silver-500">
-              Book a free, no-pressure audit. We&apos;ll walk your setup, show you where customers are
-              slipping away, and tell you straight whether we can help.
+              We&apos;ll walk through your setup, show you where customers are slipping away, and give
+              you no-nonsense feedback. Free, no-pressure audit.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <Link href="/book" className="btn-primary">

@@ -420,7 +420,7 @@ export const stats = [
   { value: "24/7", label: "Coverage" },
   { value: "<5 min", label: "Lead response" },
   { value: "90+", label: "Lighthouse target" },
-  { value: "Chicago", label: "Based & building" },
+  { value: "Chicago", label: "Based & growing" },
 ];
 
 export const capabilities = [

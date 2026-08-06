@@ -40,12 +40,11 @@ export default function PricingPage() {
               Pricing
             </div>
             <h1 className="mt-6 max-w-[16ch] text-display-lg font-bold text-gradient">
-              Start where it counts.
+              Start where it counts
             </h1>
             <p className="mt-7 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-400">
-              Every package includes the audit, monthly reporting, and a real person in Chicago who
-              picks up when you call. We recommend starting at Foundation regardless of size — it&apos;s
-              the fastest way to see whether this actually works for you.
+              Each package includes an audit, monthly reporting, and a dedicated Account Manager who
+              picks up when you call.
             </p>
           </Reveal>
         </div>

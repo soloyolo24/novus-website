@@ -21,7 +21,7 @@ export default function ServicesPage() {
               Services
             </div>
             <h1 className="mt-6 max-w-[18ch] text-display-lg font-bold text-gradient">
-              Three core systems, and the pieces that support them.
+              Three core systems.
             </h1>
             <p className="mt-7 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-400">
               Website with an AI chatbot, an AI phone assistant, and automated lead follow-up — the
