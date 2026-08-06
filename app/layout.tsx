@@ -15,7 +15,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://novussolutions.co"),
   title: {
-    default: "Novus Solutions | AI Automation & Growth Systems for Local Business",
+    default: "Novus Solutions | AI Automation & Growth Systems for Automotive Businesses",
     template: "%s | Novus Solutions",
   },
   description:
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "website development Chicago",
   ],
   openGraph: {
-    title: "Novus Solutions | AI Automation for Local Business",
+    title: "Novus Solutions | AI Automation for Automotive Businesses",
     description:
       "Websites, AI assistants, and follow-up systems for Chicago automotive business. Book a call.",
     url: "https://novussolutions.co",
