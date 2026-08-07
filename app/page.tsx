@@ -112,6 +112,53 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ---------------- IN THE BAY (photos) ---------------- */}
+      <section className="shell py-24 md:py-28">
+        <Reveal>
+          <SectionHeading
+            eyebrow="In the bay"
+            title="Built for how shops actually run"
+            lede="Your customers are calling from the waiting room, the lift, and the front counter. We build the systems that keep every one of them handled."
+          />
+        </Reveal>
+
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            {
+              src: "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=1200&q=70",
+              alt: "Mechanic working on a car engine",
+              caption: "Under the hood",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1643700973089-baa86a1ab9ee?auto=format&fit=crop&w=1200&q=70",
+              alt: "Technician working on a car in the garage bay",
+              caption: "On the lift",
+            },
+            {
+              src: "https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=1200&q=70",
+              alt: "Service advisor beside a customer's car",
+              caption: "Front of house",
+            },
+          ].map((img, i) => (
+            <Reveal key={img.caption} delay={i * 0.08}>
+              <div className="group relative h-72 overflow-hidden border border-white/10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-navy-950/10 to-transparent" />
+                <span className="absolute bottom-4 left-5 text-[13px] uppercase tracking-[0.16em] text-silver-100">
+                  {img.caption}
+                </span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
       {/* ---------------- PROCESS ---------------- */}
       <section className="shell py-24 md:py-28">
         <Reveal>

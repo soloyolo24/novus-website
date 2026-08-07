@@ -84,6 +84,25 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Garage photo band */}
+      <section className="border-y border-white/10">
+        <div className="relative h-[320px] w-full overflow-hidden md:h-[440px]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1645445522156-9ac06bc7a767?auto=format&fit=crop&w=2000&q=70"
+            alt="Technician working in an automotive garage bay"
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/50 to-navy-950/20" />
+          <div className="shell absolute inset-0 flex items-center">
+            <p className="max-w-[24ch] text-display-sm font-semibold leading-tight text-white">
+              Chicago-based, garage-floor tested.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Methodology */}
       <section className="border-y border-white/10 bg-navy-950/50 py-24">
         <div className="shell">
