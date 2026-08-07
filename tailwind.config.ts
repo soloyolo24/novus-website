@@ -5,13 +5,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // 70% — Midnight Navy
+        // 70% — Steel Blue
         navy: {
-          950: "#04081A",
-          900: "#0A1128",
-          800: "#101A38",
-          700: "#18254B",
-          600: "#22325F",
+          950: "#152449",
+          900: "#24386E",
+          800: "#324A8C",
+          700: "#3E58A0",
+          600: "#4A66B4",
         },
         // 20% — White / Silver
         silver: {
@@ -24,9 +24,9 @@ const config: Config = {
         },
         // 10% — Electric Blue
         electric: {
-          400: "#4D8BFF",
-          500: "#2E6BFF",
-          600: "#1A52E0",
+          400: "#6BA0FF",
+          500: "#4D8BFF",
+          600: "#2E6BFF",
         },
       },
       fontFamily: {
