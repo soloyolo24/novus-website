@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "./Logo";
 import { Mail, Phone, MapPin, Linkedin, Instagram, ArrowUpRight } from "lucide-react";
 import { services } from "../lib/data";
 
@@ -21,13 +21,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2.5">
-              <Image
-                src="/novus-logo.png"
-                alt="Novus"
-                width={291}
-                height={258}
-                className="h-8 w-auto"
-              />
+              <Logo className="h-8 w-auto" />
               <span className="text-[18px] font-bold tracking-[0.24em] text-white">NOVUS</span>
             </Link>
             <p className="mt-5 max-w-[34ch] text-[14.5px] leading-relaxed text-silver-500">

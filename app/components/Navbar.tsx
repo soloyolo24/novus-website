@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "./Logo";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
@@ -43,14 +43,7 @@ export default function Navbar() {
     >
       <nav className="shell flex h-[72px] items-center justify-between">
         <Link href="/" className="group flex items-center gap-2.5">
-          <Image
-            src="/novus-logo.png"
-            alt="Novus"
-            width={291}
-            height={258}
-            priority
-            className="h-[30px] w-auto transition-transform duration-300 group-hover:scale-105"
-          />
+          <Logo className="h-[30px] w-auto transition-transform duration-300 group-hover:scale-105" />
           <span className="text-[17px] font-bold tracking-[0.24em] text-white">NOVUS</span>
         </Link>
 

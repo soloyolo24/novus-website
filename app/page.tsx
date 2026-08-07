@@ -24,7 +24,7 @@ export default function HomePage() {
 
           <Reveal delay={0.08}>
             <h1 className="mt-7 max-w-[18ch] text-display-xl font-bold leading-[1.02] tracking-tight text-gradient md:max-w-[22ch]">
-              Growth Systems for your Automotive business.
+              Growth Systems for your Automotive business
             </h1>
           </Reveal>
 
