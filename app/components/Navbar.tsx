@@ -46,8 +46,8 @@ export default function Navbar() {
           <Image
             src="/novus-logo.png"
             alt="Novus"
-            width={121}
-            height={96}
+            width={291}
+            height={258}
             priority
             className="h-[30px] w-auto transition-transform duration-300 group-hover:scale-105"
           />

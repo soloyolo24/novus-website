@@ -24,8 +24,8 @@ export default function Footer() {
               <Image
                 src="/novus-logo.png"
                 alt="Novus"
-                width={121}
-                height={96}
+                width={291}
+                height={258}
                 className="h-8 w-auto"
               />
               <span className="text-[18px] font-bold tracking-[0.24em] text-white">NOVUS</span>
