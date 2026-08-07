@@ -14,37 +14,53 @@ export default function HomePage() {
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-[-30%] h-[720px] w-[900px] -translate-x-1/2 rounded-full bg-electric-500/10 blur-[140px]"
         />
-        <div className="shell relative py-28 md:py-36">
-          <Reveal>
-            <div className="eyebrow text-silver-200">
-              <span className="h-px w-9 bg-electric-500" />
-              Chicago · Built for the Automotive Trade
+        <div className="shell relative py-24 md:py-32">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <Reveal>
+                <div className="eyebrow text-silver-200">
+                  <span className="h-px w-9 bg-electric-500" />
+                  Chicago · Built for the Automotive Trade
+                </div>
+              </Reveal>
+
+              <Reveal delay={0.08}>
+                <h1 className="mt-7 text-display-xl font-bold leading-[1.02] tracking-tight text-gradient">
+                  Growth Systems for your Automotive business
+                </h1>
+              </Reveal>
+
+              <Reveal delay={0.16}>
+                <p className="mt-8 max-w-[52ch] text-[17px] leading-relaxed text-silver-300">
+                  We build the websites, AI assistants, and follow-up systems that make sure your
+                  automotive business never loses another customer.
+                </p>
+              </Reveal>
+
+              <Reveal delay={0.24}>
+                <div className="mt-11 flex flex-wrap gap-4">
+                  <Link href="/book" className="btn-primary">
+                    Book a call <ArrowRight size={15} />
+                  </Link>
+                  <Link href="/services" className="btn-secondary">
+                    View services
+                  </Link>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
 
-          <Reveal delay={0.08}>
-            <h1 className="mt-7 max-w-[18ch] text-display-xl font-bold leading-[1.02] tracking-tight text-gradient md:max-w-[22ch]">
-              Growth Systems for your Automotive business
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.16}>
-            <p className="mt-8 max-w-[54ch] text-[17px] leading-relaxed text-silver-400">
-              We build the websites, AI assistants, and follow-up systems that make sure your
-              automotive business never loses another customer.
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.24}>
-            <div className="mt-11 flex flex-wrap gap-4">
-              <Link href="/book" className="btn-primary">
-                Book a call <ArrowRight size={15} />
-              </Link>
-              <Link href="/services" className="btn-secondary">
-                View services
-              </Link>
-            </div>
-          </Reveal>
+            <Reveal delay={0.2}>
+              <div className="relative overflow-hidden border border-white/10">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1400&q=70"
+                  alt="Mechanic working in the engine bay"
+                  className="h-[360px] w-full object-cover md:h-[480px]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-navy-950/50 via-transparent to-transparent" />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -135,8 +151,8 @@ export default function HomePage() {
               caption: "On the lift",
             },
             {
-              src: "https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&w=1200&q=70",
-              alt: "Service advisor beside a customer's car",
+              src: "https://images.unsplash.com/photo-1676636810289-2ac22579d988?auto=format&fit=crop&w=1200&q=70",
+              alt: "Service advisor at the shop computer",
               caption: "Front of house",
             },
           ].map((img, i) => (
@@ -238,19 +254,13 @@ export default function HomePage() {
           <div className="mt-10 border-l border-electric-500/50 pl-8 md:pl-10">
             <Quote size={28} className="mb-6 text-electric-500/60" />
             <blockquote className="max-w-[24ch] text-display-sm font-medium leading-tight text-white md:max-w-[30ch]">
-              Your first real client quote goes here — one sentence about what changed for their
-              business after the build.
+              Novus is what you need to be in the future.
             </blockquote>
             <div className="mt-8 text-[13.5px] text-silver-500">
-              <strong className="block font-semibold text-silver-300">Client Name</strong>
-              Owner, Business Name
+              <strong className="block font-semibold text-silver-300">Shop Owner</strong>
+              Chicago Auto Repair
             </div>
           </div>
-          <p className="mt-8 max-w-[70ch] border border-dashed border-white/15 p-4 text-[12.5px] leading-relaxed text-silver-500">
-            Placeholder — replace once your first client is live. Leaving this generic is better than
-            inventing a quote; a fabricated testimonial is the fastest way to lose a deal when someone
-            follows up on it.
-          </p>
         </Reveal>
       </section>
 

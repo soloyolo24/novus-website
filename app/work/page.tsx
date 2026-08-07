@@ -7,6 +7,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../components/Reveal";
 import { projects, workCategories } from "../lib/data";
 
+const projectImages: Record<string, string> = {
+  "alba-auto-service":
+    "https://images.unsplash.com/photo-1615906655593-ad0386982a0f?auto=format&fit=crop&w=1000&q=70",
+  "voice-assistant-prototype":
+    "https://images.unsplash.com/photo-1517026575980-3e1e2dedeab4?auto=format&fit=crop&w=1000&q=70",
+  "follow-up-engine":
+    "https://images.unsplash.com/photo-1637640125496-31852f042a60?auto=format&fit=crop&w=1000&q=70",
+};
+
 export default function WorkPage() {
   const [filter, setFilter] = useState<string>("All");
 
@@ -65,8 +74,14 @@ export default function WorkPage() {
               >
                 <Link
                   href={`/work/${project.slug}`}
-                  className="card card-hover group flex h-full flex-col p-8"
+                  className="card card-hover group flex h-full flex-col overflow-hidden p-8"
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={projectImages[project.slug]}
+                    alt={project.client}
+                    className="-mx-8 -mt-8 mb-6 h-40 w-[calc(100%+4rem)] max-w-none object-cover"
+                  />
                   <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-silver-500">
                     <span>{project.industry}</span>
                     <span>{project.year}</span>

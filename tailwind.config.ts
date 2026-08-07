@@ -19,8 +19,8 @@ const config: Config = {
           100: "#F4F7FC",
           200: "#E3E9F4",
           300: "#C6D0E2",
-          400: "#94A3BE",
-          500: "#6B7A96",
+          400: "#BEC8D8",
+          500: "#A0ABC0",
         },
         // 10% — Electric Blue
         electric: {

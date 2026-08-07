@@ -32,6 +32,24 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <section className="border-b border-white/10">
+        <div className="relative h-[300px] w-full overflow-hidden md:h-[400px]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1632733711679-529326f6db12?auto=format&fit=crop&w=2000&q=70"
+            alt="Technician working on a car engine"
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/50 to-navy-950/20" />
+          <div className="shell absolute inset-0 flex items-center">
+            <p className="max-w-[26ch] text-display-sm font-semibold leading-tight text-white">
+              Every system, tested on a real shop before it ships.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="shell py-20 md:py-24">
         <div className="grid gap-6 lg:grid-cols-2">
           {services.map((service, i) => {

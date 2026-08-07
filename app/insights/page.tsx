@@ -41,6 +41,24 @@ export default function InsightsPage() {
         </div>
       </section>
 
+      <section className="border-b border-white/10">
+        <div className="relative h-[280px] w-full overflow-hidden md:h-[360px]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1637640125496-31852f042a60?auto=format&fit=crop&w=2000&q=70"
+            alt="Automotive tools laid out in the shop"
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/50 to-navy-950/20" />
+          <div className="shell absolute inset-0 flex items-center">
+            <p className="max-w-[26ch] text-display-sm font-semibold leading-tight text-white">
+              Field notes from building automotive growth systems.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Featured */}
       <section className="shell py-16 md:py-20">
         <Reveal>

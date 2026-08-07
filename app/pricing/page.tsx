@@ -50,6 +50,24 @@ export default function PricingPage() {
         </div>
       </section>
 
+      <section className="border-b border-white/10">
+        <div className="relative h-[300px] w-full overflow-hidden md:h-[400px]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1596986952526-3be237187071?auto=format&fit=crop&w=2000&q=70"
+            alt="Car in a clean automotive garage bay"
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/50 to-navy-950/20" />
+          <div className="shell absolute inset-0 flex items-center">
+            <p className="max-w-[26ch] text-display-sm font-semibold leading-tight text-white">
+              One transparent price after the audit — no surprises.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="shell py-20 md:py-24">
         <div className="grid gap-6 lg:grid-cols-3">
           {tiers.map((tier, i) => (
