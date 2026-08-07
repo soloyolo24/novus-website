@@ -43,7 +43,7 @@ export default function Navbar() {
     >
       <nav className="shell flex h-[72px] items-center justify-between">
         <Link href="/" className="group flex items-center gap-2.5">
-          <Logo className="h-[30px] w-auto transition-transform duration-300 group-hover:scale-105" />
+          <Logo className="h-[42px] w-auto transition-transform duration-300 group-hover:scale-105" />
           <span className="text-[17px] font-bold tracking-[0.24em] text-white">NOVUS</span>
         </Link>
 
