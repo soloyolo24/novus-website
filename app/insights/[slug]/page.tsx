@@ -42,8 +42,12 @@ export default async function ArticlePage({
   return (
     <>
       <article>
-        <section className="border-b border-white/10">
-          <div className="shell py-20 md:py-24">
+        <section className="relative -mt-[72px] overflow-hidden border-b border-white/10">
+        <div aria-hidden className="light-shaft animate-drift left-auto -right-[220px] -scale-x-100" />
+        <div aria-hidden className="bloom -top-52 right-[4%] h-[520px] w-[520px]" />
+        <div aria-hidden className="particles" />
+        <div aria-hidden className="vignette" />
+          <div className="shell relative z-[2] pb-14 pt-32 md:pb-16 md:pt-40">
             <Link href="/insights" className="link-underline">
               <ArrowLeft size={14} /> All insights
             </Link>
@@ -75,7 +79,7 @@ export default async function ArticlePage({
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="mt-16 max-w-[68ch] border-l border-electric-500/50 bg-navy-800/40 p-8">
+            <div className="mt-16 max-w-[68ch] border-l border-electric-500/50 bg-white/[0.03] p-8">
               <h2 className="text-[18px] font-semibold text-white">
                 Want us to look at your setup?
               </h2>
@@ -91,7 +95,7 @@ export default async function ArticlePage({
         </section>
       </article>
 
-      <section className="border-t border-white/10 bg-navy-950/60">
+      <section className="border-t border-white/10 bg-ink-950/60">
         <div className="shell py-20">
           <h2 className="text-[13px] uppercase tracking-[0.22em] text-silver-500">Keep reading</h2>
           <div className="mt-9 grid gap-px bg-white/10 sm:grid-cols-3">
@@ -99,7 +103,7 @@ export default async function ArticlePage({
               <Link
                 key={p.slug}
                 href={`/insights/${p.slug}`}
-                className="group bg-navy-950 p-8 transition-colors hover:bg-navy-800"
+                className="group bg-ink-950 p-8 transition-colors hover:bg-navy-800"
               >
                 <span className="text-[11px] uppercase tracking-[0.18em] text-electric-500">
                   {p.category}

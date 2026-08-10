@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Reveal from "../components/Reveal";
 import { projects, workCategories } from "../lib/data";
+import PageHeader from "../components/PageHeader";
 
 export default function WorkPage() {
   const [filter, setFilter] = useState<string>("All");
@@ -15,23 +16,11 @@ export default function WorkPage() {
 
   return (
     <>
-      <section className="border-b border-white/10">
-        <div className="shell py-24 md:py-28">
-          <Reveal>
-            <div className="eyebrow">
-              <span className="h-px w-8 bg-electric-500" />
-              Selected work
-            </div>
-            <h1 className="mt-6 max-w-[17ch] text-display-lg font-bold text-gradient">
-              Things we&apos;ve built, running live.
-            </h1>
-            <p className="mt-7 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-400">
-              We build working demos on real local businesses before we pitch them. Each of these is
-              something you can actually open and use, not a mockup.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Selected work"
+        title="Things we've built, running live."
+        lede="We build working demos on real shops before we pitch them. Each of these is something you can actually open and use, not a mockup."
+      />
 
       <section className="shell py-16 md:py-20">
         {/* Filter pills */}
@@ -40,7 +29,7 @@ export default function WorkPage() {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`shrink-0 border px-5 py-2.5 text-[12px] uppercase tracking-[0.14em] transition-all ${
+              className={`shrink-0 rounded-full border px-5 py-2.5 text-[12px] uppercase tracking-[0.14em] transition-all ${
                 filter === cat
                   ? "border-electric-500 bg-electric-500 font-semibold text-white"
                   : "border-white/15 text-silver-400 hover:border-silver-400 hover:text-white"
@@ -106,7 +95,7 @@ export default function WorkPage() {
         )}
       </section>
 
-      <section className="border-t border-white/10 bg-navy-950">
+      <section className="border-t border-white/10 bg-ink-950">
         <div className="shell py-24 text-center">
           <h2 className="mx-auto max-w-[20ch] text-display-md font-bold text-white">
             Want to see one of these running on your business?

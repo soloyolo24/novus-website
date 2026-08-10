@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import Reveal from "../components/Reveal";
 import { tiers } from "../lib/data";
+import PageHeader from "../components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -32,38 +33,25 @@ const faqs = [
 export default function PricingPage() {
   return (
     <>
-      <section className="border-b border-white/10">
-        <div className="shell py-24 md:py-28">
-          <Reveal>
-            <div className="eyebrow">
-              <span className="h-px w-8 bg-electric-500" />
-              Pricing
-            </div>
-            <h1 className="mt-6 max-w-[16ch] text-display-lg font-bold text-gradient">
-              Start where it counts.
-            </h1>
-            <p className="mt-7 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-400">
-              Every package includes the audit, monthly reporting, and a real person in Chicago who
-              picks up when you call. We recommend starting at Foundation regardless of size — it&apos;s
-              the fastest way to see whether this actually works for you.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Pricing"
+        title="Start where it counts."
+        lede="Every package includes the audit, monthly reporting, and a real person in Chicago who picks up when you call. We recommend starting at Foundation regardless of size — it's the fastest way to see whether this actually works for you."
+      />
 
       <section className="shell py-20 md:py-24">
         <div className="grid gap-6 lg:grid-cols-3">
           {tiers.map((tier, i) => (
             <Reveal key={tier.name} delay={i * 0.08}>
               <div
-                className={`flex h-full flex-col p-9 ${
+                className={`flex h-full flex-col rounded-2xl p-9 ${
                   tier.featured
-                    ? "border border-electric-500/50 bg-gradient-to-b from-navy-800 to-navy-900"
+                    ? "border border-electric-500/40 bg-gradient-to-b from-electric-500/[0.13] to-white/[0.02] shadow-[0_0_60px_rgba(77,139,255,0.09)]"
                     : "card"
                 }`}
               >
                 {tier.featured && (
-                  <span className="mb-5 self-start bg-electric-500 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white">
+                  <span className="mb-5 self-start rounded-full bg-electric-500 px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-950">
                     Most common
                   </span>
                 )}
@@ -99,7 +87,7 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-white/10 bg-navy-950/50 py-24">
+      <section className="border-t border-white/10 bg-ink-950/50 py-24">
         <div className="shell">
           <Reveal>
             <div className="eyebrow">

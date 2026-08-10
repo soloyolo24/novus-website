@@ -1,36 +1,37 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PageWrapper from "./components/PageWrapper";
 import ChatWidget from "./components/ChatWidget";
 
-const inter = Inter({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://novussolutions.co"),
   title: {
-    default: "Novus Solutions | AI Automation & Growth Systems for Local Business",
+    default: "Novus Solutions | AI Systems for Auto Shops in Chicago",
     template: "%s | Novus Solutions",
   },
   description:
-    "Novus builds websites, AI chatbots, phone assistants, and follow-up systems for local Chicago businesses. Never miss another customer. Book a call.",
+    "Novus builds websites, AI phone assistants, and follow-up systems for Chicago auto shops. Stop losing customers to missed calls. Book a free audit.",
   keywords: [
-    "AI automation Chicago",
-    "local business AI",
-    "AI chatbot",
-    "AI phone assistant",
-    "website development Chicago",
+    "auto shop AI Chicago",
+    "AI phone assistant auto repair",
+    "missed call text back",
+    "auto repair shop website",
+    "automotive lead follow-up",
   ],
   openGraph: {
-    title: "Novus Solutions | AI Automation for Local Business",
+    title: "Novus Solutions | AI Systems for Auto Shops",
     description:
-      "Websites, AI assistants, and follow-up systems for Chicago local business. Book a call.",
+      "Your shop has an old way. We build the new one. Websites, AI assistants, and follow-up systems for Chicago auto shops.",
     url: "https://novussolutions.co",
     siteName: "Novus Solutions",
     type: "website",
@@ -40,8 +41,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="bg-navy-900 font-sans">
+    <html lang="en" className={spaceGrotesk.variable}>
+      <body className="bg-ink-900 font-sans">
         <Navbar />
         <PageWrapper>{children}</PageWrapper>
         <Footer />

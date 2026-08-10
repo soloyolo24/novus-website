@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import Reveal from "../components/Reveal";
 import { services, BOOKING_URL } from "../lib/data";
+import PageHeader from "../components/PageHeader";
 
 const budgets = ["Under $2k", "$2k – $5k", "$5k – $10k", "$10k+", "Not sure yet"];
 
@@ -67,33 +68,21 @@ export default function ContactPage() {
   }
 
   const inputClass =
-    "w-full border border-white/15 bg-navy-800/50 px-4 py-3.5 text-[15px] text-white placeholder:text-silver-500 transition-colors focus:border-electric-500 focus:outline-none";
+    "w-full rounded-xl border border-white/15 bg-white/[0.04] px-4 py-3.5 text-[15px] text-white placeholder:text-silver-500 transition-colors focus:border-electric-500 focus:outline-none";
 
   return (
     <>
-      <section className="border-b border-white/10">
-        <div className="shell py-24 md:py-28">
-          <Reveal>
-            <div className="eyebrow">
-              <span className="h-px w-8 bg-electric-500" />
-              Contact
-            </div>
-            <h1 className="mt-6 max-w-[16ch] text-display-lg font-bold text-gradient">
-              Let&apos;s find what you&apos;re losing.
-            </h1>
-            <p className="mt-7 max-w-[56ch] text-[16.5px] leading-relaxed text-silver-400">
-              Tell us a bit about your business and we&apos;ll come back within one working day. The
-              audit is free and there&apos;s no obligation attached to it.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Contact"
+        title="Let's find what you're losing."
+        lede="Tell us a bit about your shop and we'll come back within one working day. The audit is free and there's no obligation attached to it."
+      />
 
       {/* Direct booking */}
-      <section className="border-b border-white/10 bg-navy-950/50">
+      <section className="border-b border-white/10 bg-ink-950/50">
         <div className="shell py-14 md:py-16">
           <Reveal>
-            <div className="flex flex-col items-start justify-between gap-6 border border-white/10 bg-navy-800/40 p-8 md:flex-row md:items-center md:p-10">
+            <div className="flex flex-col items-start justify-between gap-6 rounded-2xl border border-white/10 bg-white/[0.03] p-8 md:flex-row md:items-center md:p-10">
               <div>
                 <h2 className="text-[13px] uppercase tracking-[0.22em] text-silver-500">
                   Prefer to just grab a time?
@@ -174,7 +163,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"
-                    className="border border-white/10 p-3 text-silver-400 transition-colors hover:border-electric-500 hover:text-white"
+                    className="rounded-xl border border-white/10 p-3 text-silver-400 transition-colors hover:border-electric-500 hover:text-white"
                   >
                     <Linkedin size={17} />
                   </a>
@@ -183,14 +172,14 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="border border-white/10 p-3 text-silver-400 transition-colors hover:border-electric-500 hover:text-white"
+                    className="rounded-xl border border-white/10 p-3 text-silver-400 transition-colors hover:border-electric-500 hover:text-white"
                   >
                     <Instagram size={17} />
                   </a>
                 </div>
               </div>
 
-              <div className="mt-12 border border-white/10 bg-navy-800/40 p-6">
+              <div className="mt-12 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
                 <p className="text-[14px] leading-relaxed text-silver-500">
                   We work with a limited number of clients at a time so each build gets proper
                   attention. If we&apos;re at capacity we&apos;ll tell you honestly rather than take the

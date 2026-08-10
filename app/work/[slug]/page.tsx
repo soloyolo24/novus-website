@@ -33,8 +33,12 @@ export default async function CaseStudyPage({
 
   return (
     <>
-      <section className="border-b border-white/10">
-        <div className="shell py-20 md:py-24">
+      <section className="relative -mt-[72px] overflow-hidden border-b border-white/10">
+        <div aria-hidden className="light-shaft animate-drift left-auto -right-[220px] -scale-x-100" />
+        <div aria-hidden className="bloom -top-52 right-[4%] h-[520px] w-[520px]" />
+        <div aria-hidden className="particles" />
+        <div aria-hidden className="vignette" />
+        <div className="shell relative z-[2] pb-14 pt-32 md:pb-16 md:pt-40">
           <Link href="/work" className="link-underline">
             <ArrowLeft size={14} /> All work
           </Link>
@@ -98,7 +102,7 @@ export default async function CaseStudyPage({
         </div>
       </section>
 
-      <section className="border-t border-white/10 bg-navy-950/60">
+      <section className="border-t border-white/10 bg-ink-950/60">
         <div className="shell py-20">
           <h2 className="text-[13px] uppercase tracking-[0.22em] text-silver-500">More work</h2>
           <div className="mt-9 grid gap-px bg-white/10 sm:grid-cols-2">
@@ -106,7 +110,7 @@ export default async function CaseStudyPage({
               <Link
                 key={p.slug}
                 href={`/work/${p.slug}`}
-                className="group bg-navy-950 p-8 transition-colors hover:bg-navy-800"
+                className="group bg-ink-950 p-8 transition-colors hover:bg-navy-800"
               >
                 <div className="text-[11px] uppercase tracking-[0.18em] text-silver-500">
                   {p.industry}

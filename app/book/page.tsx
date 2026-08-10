@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ArrowUpRight, CalendarCheck, Clock, ShieldCheck, Video } from "lucide-react";
 import Reveal from "../components/Reveal";
 import { BOOKING_URL } from "../lib/data";
+import PageHeader from "../components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Book a Call",
@@ -30,24 +31,11 @@ const expectations = [
 export default function BookPage() {
   return (
     <>
-      <section className="border-b border-white/10">
-        <div className="shell py-24 md:py-28">
-          <Reveal>
-            <div className="eyebrow">
-              <span className="h-px w-8 bg-electric-500" />
-              Book a call
-            </div>
-            <h1 className="mt-6 max-w-[18ch] text-display-lg font-bold text-gradient">
-              Let&apos;s see what&apos;s worth fixing.
-            </h1>
-            <p className="mt-7 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-400">
-              A free 30-minute intro call. We&apos;ll look at how your business currently handles
-              calls, messages, and follow-up, and show you what an AI assistant looks like for a
-              business like yours.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Book a call"
+        title="Let's see what's worth fixing."
+        lede="A free 30-minute intro call. We'll look at how your shop currently handles calls, messages, and follow-up, and show you what an AI assistant looks like for a shop like yours."
+      />
 
       <section className="shell py-20 md:py-24">
         <div className="grid gap-16 lg:grid-cols-[1fr_0.85fr]">
@@ -55,7 +43,7 @@ export default function BookPage() {
             <div className="grid gap-8 sm:grid-cols-1">
               {expectations.map((item) => (
                 <div key={item.title} className="flex gap-5">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/10 bg-navy-800/50">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-white/10 bg-white/[0.04]">
                     <item.icon size={18} className="text-electric-500" />
                   </div>
                   <div>

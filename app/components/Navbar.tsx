@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "./Logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -35,16 +36,13 @@ export default function Navbar() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-shadow duration-300 glass ${
-        scrolled ? "shadow-[0_1px_0_0_rgba(255,255,255,0.06)]" : ""
-      }`}
-    >
-      <nav className="shell flex h-[72px] items-center justify-between">
-        <Link href="/" className="group flex items-center gap-2.5">
-          <span className="h-2 w-2 rotate-45 bg-electric-500 transition-transform duration-300 group-hover:rotate-[135deg]" />
-          <span className="text-[17px] font-bold tracking-[0.24em] text-white">NOVUS</span>
-        </Link>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
+      <nav
+        className={`mx-auto flex h-[68px] max-w-shell items-center justify-between rounded-full
+                    border border-white/10 bg-ink-900/60 pl-6 pr-3 backdrop-blur-xl transition-shadow duration-300
+                    ${scrolled ? "shadow-[0_10px_40px_rgba(0,0,0,0.55)]" : ""}`}
+      >
+        <Logo size={30} />
 
         <ul className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
@@ -71,7 +69,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/book"
-            className="inline-flex border border-white/20 px-3.5 py-2 text-[10.5px] uppercase tracking-[0.12em] text-silver-200 transition-all hover:border-electric-500 hover:bg-electric-500 hover:text-white sm:px-5 sm:py-2.5 sm:text-[11px] sm:tracking-[0.16em]"
+            className="btn-primary !px-4 !py-2.5 !text-[10.5px] sm:!px-6 sm:!text-[11px]"
           >
             Book a call
           </Link>
@@ -92,9 +90,9 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.28 }}
-            className="overflow-hidden border-t border-white/10 bg-navy-900/95 lg:hidden"
+            className="mx-auto mt-2 max-w-shell overflow-hidden rounded-3xl border border-white/10 bg-ink-900/95 backdrop-blur-xl lg:hidden"
           >
-            <ul className="shell flex flex-col py-4">
+            <ul className="flex flex-col px-6 py-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -109,7 +107,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/book"
-                  className="mt-4 block bg-electric-500 py-3.5 text-center text-[12px] uppercase tracking-[0.16em] font-semibold text-white"
+                  className="btn-primary mt-4 w-full"
                 >
                   Book a call
                 </Link>

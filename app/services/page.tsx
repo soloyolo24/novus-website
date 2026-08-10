@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import Reveal from "../components/Reveal";
+import PageHeader from "../components/PageHeader";
 import { services } from "../lib/data";
 
 export const metadata: Metadata = {
@@ -13,24 +14,11 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="border-b border-white/10">
-        <div className="shell py-24 md:py-28">
-          <Reveal>
-            <div className="eyebrow">
-              <span className="h-px w-8 bg-electric-500" />
-              Services
-            </div>
-            <h1 className="mt-6 max-w-[18ch] text-display-lg font-bold text-gradient">
-              Three core systems, and the pieces that support them.
-            </h1>
-            <p className="mt-7 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-400">
-              Website with an AI chatbot, an AI phone assistant, and automated lead follow-up — the
-              three that stop customers slipping away. Everything else on this page exists to support
-              them. We only recommend what the audit actually turns up.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Services"
+        title="Three core systems, and the pieces that support them."
+        lede="Website with an AI chatbot, an AI phone assistant, and automated lead follow-up — the three that stop customers slipping away. Everything else on this page exists to support them. We only recommend what the audit actually turns up."
+      />
 
       <section className="shell py-20 md:py-24">
         <div className="grid gap-6 lg:grid-cols-2">
@@ -82,7 +70,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 bg-navy-950">
+      <section className="border-t border-white/10 bg-ink-950">
         <div className="shell py-24 text-center">
           <Reveal>
             <h2 className="mx-auto max-w-[18ch] text-display-md font-bold text-white">

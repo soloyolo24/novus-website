@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, Compass, ShieldCheck, Gauge, Handshake } from "lucide-react";
 import Reveal from "../components/Reveal";
 import SectionHeading from "../components/SectionHeading";
+import PageHeader from "../components/PageHeader";
 import { processSteps } from "../lib/data";
 
 export const metadata: Metadata = {
@@ -37,24 +38,11 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <section className="border-b border-white/10">
-        <div className="shell py-24 md:py-28">
-          <Reveal>
-            <div className="eyebrow">
-              <span className="h-px w-8 bg-electric-500" />
-              About
-            </div>
-            <h1 className="mt-6 max-w-[18ch] text-display-lg font-bold text-gradient">
-              We build the systems most local businesses never get around to.
-            </h1>
-            <p className="mt-7 max-w-[60ch] text-[16.5px] leading-relaxed text-silver-400">
-              Not because owners don&apos;t care — because they&apos;re running the business. The
-              backup nobody set up, the call nobody answered, the lead nobody followed up on. That&apos;s
-              the work we do.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="About"
+        title="We build the systems most shops never get around to."
+        lede="Not because owners don't care — because they're running the business. The backup nobody set up, the call nobody answered, the lead nobody followed up on. That's the work we do."
+      />
 
       {/* Narrative */}
       <section className="shell py-24">
@@ -86,7 +74,7 @@ export default function AboutPage() {
       </section>
 
       {/* Methodology */}
-      <section className="border-y border-white/10 bg-navy-950/50 py-24">
+      <section className="border-y border-white/10 bg-ink-950/50 py-24">
         <div className="shell">
           <Reveal>
             <SectionHeading
@@ -99,7 +87,7 @@ export default function AboutPage() {
           <div className="mt-14 grid gap-px border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-4">
             {processSteps.map((step, i) => (
               <Reveal key={step.n} delay={i * 0.06}>
-                <div className="h-full bg-navy-950 p-8">
+                <div className="h-full bg-ink-950 p-8">
                   <div className="text-[12px] tracking-[0.2em] text-electric-500">{step.n}</div>
                   <h3 className="mt-5 text-[18px] font-semibold text-white">{step.title}</h3>
                   <p className="mt-3 text-[14px] leading-relaxed text-silver-500">{step.body}</p>
@@ -132,7 +120,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 bg-navy-950">
+      <section className="border-t border-white/10 bg-ink-950">
         <div className="shell py-24 text-center">
           <Reveal>
             <h2 className="mx-auto max-w-[18ch] text-display-md font-bold text-white">

@@ -7,7 +7,7 @@ export default function Marquee({ items, reverse = false }: MarqueeProps) {
   const doubled = [...items, ...items];
 
   return (
-    <div className="overflow-hidden border-y border-white/10 bg-navy-800/40 py-5">
+    <div className="overflow-hidden border-y border-white/10 bg-white/[0.015] py-5">
       <div
         className={`flex w-max gap-10 whitespace-nowrap ${
           reverse ? "animate-marquee-reverse" : "animate-marquee"

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin, Linkedin, Instagram, ArrowUpRight } from "lucide-react";
 import { services } from "../lib/data";
+import Logo from "./Logo";
 
 const pages = [
   { href: "/", label: "Home" },
@@ -14,17 +15,14 @@ const pages = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-navy-950">
+    <footer className="border-t border-white/10 bg-ink-950">
       <div className="shell py-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="h-2 w-2 rotate-45 bg-electric-500" />
-              <span className="text-[18px] font-bold tracking-[0.24em] text-white">NOVUS</span>
-            </Link>
+            <Logo size={32} />
             <p className="mt-5 max-w-[34ch] text-[14.5px] leading-relaxed text-silver-500">
-              AI automation and growth systems for local business. Built in Chicago, for Chicago.
+              AI systems for auto shops. Built in Chicago, for Chicago.
             </p>
             <div className="mt-6 flex gap-3">
               <a

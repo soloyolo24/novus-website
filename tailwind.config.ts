@@ -5,24 +5,40 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // 70% — Steel Blue
+        /* ---- Ground: cinematic near-black, cooled toward the brand ---- */
+        ink: {
+          950: "#05070E", // page floor
+          900: "#080C18", // default background
+          800: "#0E1428", // raised surface
+          700: "#141C36", // card / hover
+        },
+        /* ---- Legacy navy kept so untouched routes still compile ---- */
         navy: {
-          950: "#152449",
-          900: "#24386E",
-          800: "#324A8C",
-          700: "#3E58A0",
+          950: "#05070E",
+          900: "#080C18",
+          800: "#0E1428",
+          700: "#141C36",
           600: "#4A66B4",
         },
-        // 20% — White / Silver
+        /* ---- The logo: brushed platinum ---- */
+        platinum: {
+          50: "#FFFFFF",
+          100: "#F3F3F1",
+          200: "#ECECE9",
+          300: "#DBDBD8",
+          400: "#BEBEBA",
+          500: "#929290",
+        },
+        /* ---- Text ---- */
         silver: {
           50: "#FFFFFF",
           100: "#F4F7FC",
           200: "#E3E9F4",
           300: "#C6D0E2",
           400: "#94A3BE",
-          500: "#6B7A96",
+          500: "#7C8AA5",
         },
-        // 10% — Electric Blue
+        /* ---- The one accent: electric blue ---- */
         electric: {
           400: "#6BA0FF",
           500: "#4D8BFF",
@@ -33,22 +49,34 @@ const config: Config = {
         sans: ["var(--font-space-grotesk)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "display-xl": ["clamp(3rem, 8vw, 6.5rem)", { lineHeight: "0.95", letterSpacing: "-0.04em" }],
-        "display-lg": ["clamp(2.5rem, 5.5vw, 4.5rem)", { lineHeight: "1", letterSpacing: "-0.03em" }],
-        "display-md": ["clamp(2rem, 4vw, 3.25rem)", { lineHeight: "1.05", letterSpacing: "-0.025em" }],
+        "display-xl": ["clamp(2.9rem, 7vw, 5.4rem)", { lineHeight: "0.98", letterSpacing: "-0.04em" }],
+        "display-lg": ["clamp(2.4rem, 5.4vw, 4.2rem)", { lineHeight: "1", letterSpacing: "-0.035em" }],
+        "display-md": ["clamp(2rem, 4vw, 3.1rem)", { lineHeight: "1.06", letterSpacing: "-0.03em" }],
         "display-sm": ["clamp(1.5rem, 2.6vw, 2.25rem)", { lineHeight: "1.15", letterSpacing: "-0.02em" }],
       },
       maxWidth: {
         shell: "1200px",
       },
       animation: {
-        marquee: "marquee 32s linear infinite",
-        "marquee-reverse": "marquee 32s linear infinite reverse",
+        marquee: "marquee 34s linear infinite",
+        "marquee-reverse": "marquee 34s linear infinite reverse",
+        drift: "drift 18s ease-in-out infinite",
+        "pulse-dot": "pulse-dot 2.4s ease-in-out infinite",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
+        },
+        /* Opacity-only: the shaft already owns `transform: rotate(22deg)`,
+           so animating transform here would flatten it. */
+        drift: {
+          "0%, 100%": { opacity: "0.75" },
+          "50%": { opacity: "1" },
+        },
+        "pulse-dot": {
+          "0%, 100%": { opacity: "1", boxShadow: "0 0 10px 0 rgba(77,139,255,0.9)" },
+          "50%": { opacity: "0.55", boxShadow: "0 0 16px 2px rgba(77,139,255,0.35)" },
         },
       },
       backdropBlur: {

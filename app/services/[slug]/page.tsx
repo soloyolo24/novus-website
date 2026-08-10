@@ -34,8 +34,12 @@ export default async function ServiceDetailPage({
 
   return (
     <>
-      <section className="border-b border-white/10">
-        <div className="shell py-20 md:py-24">
+      <section className="relative -mt-[72px] overflow-hidden border-b border-white/10">
+        <div aria-hidden className="light-shaft animate-drift left-auto -right-[220px] -scale-x-100" />
+        <div aria-hidden className="bloom -top-52 right-[4%] h-[520px] w-[520px]" />
+        <div aria-hidden className="particles" />
+        <div aria-hidden className="vignette" />
+        <div className="shell relative z-[2] pb-14 pt-32 md:pb-16 md:pt-40">
           <Link href="/services" className="link-underline">
             <ArrowLeft size={14} /> All services
           </Link>
@@ -94,7 +98,7 @@ export default async function ServiceDetailPage({
         </div>
       </section>
 
-      <section className="border-t border-white/10 bg-navy-950/60">
+      <section className="border-t border-white/10 bg-ink-950/60">
         <div className="shell py-20">
           <h2 className="text-[13px] uppercase tracking-[0.22em] text-silver-500">
             Other services
@@ -106,7 +110,7 @@ export default async function ServiceDetailPage({
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className="group bg-navy-950 p-8 transition-colors hover:bg-navy-800"
+                  className="group bg-ink-950 p-8 transition-colors hover:bg-navy-800"
                 >
                   <OtherIcon size={20} className="text-electric-500" />
                   <h3 className="mt-5 text-[17px] font-semibold text-white">{s.title}</h3>

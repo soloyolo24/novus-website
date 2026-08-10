@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "../components/Reveal";
 import { posts } from "../lib/data";
+import PageHeader from "../components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -23,23 +24,11 @@ export default function InsightsPage() {
 
   return (
     <>
-      <section className="border-b border-white/10">
-        <div className="shell py-24 md:py-28">
-          <Reveal>
-            <div className="eyebrow">
-              <span className="h-px w-8 bg-electric-500" />
-              Insights
-            </div>
-            <h1 className="mt-6 max-w-[17ch] text-display-lg font-bold text-gradient">
-              Notes from the work.
-            </h1>
-            <p className="mt-7 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-400">
-              Practical writing on what actually moves the needle for local business — no growth
-              hacking, no listicles.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Insights"
+        title="Notes from the work."
+        lede="Practical writing on what actually moves the needle for a shop — no growth hacking, no listicles."
+      />
 
       {/* Featured */}
       <section className="shell py-16 md:py-20">
