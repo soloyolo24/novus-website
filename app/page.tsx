@@ -73,7 +73,7 @@ export default function HomePage() {
           <Reveal>
             <div className="chip">
               <span className="chip-dot" />
-              Chicago · AI Systems for Auto Shops
+              Chicago · Technology &amp; Business Growth for Auto Shops
             </div>
           </Reveal>
 
@@ -359,7 +359,7 @@ export default function HomePage() {
           <Reveal>
             <div className="eyebrow justify-center">Start the conversation</div>
             <h2 className="mx-auto mt-6 max-w-[15ch] text-display-lg font-bold text-white">
-              Let&apos;s find your old way.
+              Let&apos;s build your new way.
             </h2>
             <p className="mx-auto mt-6 max-w-[52ch] text-[16px] leading-relaxed text-silver-500">
               Book a free, no-pressure audit. We&apos;ll walk your shop&apos;s setup, show you

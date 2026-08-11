@@ -254,61 +254,96 @@ export const workCategories: ("All" | WorkCategory)[] = ["All", "Website", "AI C
 
 export interface Tier {
   name: string;
-  price: string;
-  retainer: string;
-  tagline: string;
-  features: string[];
+  /** One-time build cost. */
+  setup: string;
+  /** Ongoing operational cost. */
+  monthly: string;
+  /** What this tier is actually for. */
+  goal: string;
+  features: { title: string; detail?: string }[];
   featured?: boolean;
 }
 
 export const tiers: Tier[] = [
   {
     name: "Foundation",
-    price: "$1,500 – $3,500",
-    retainer: "+ $150–300 / month",
-    tagline: "Get found and never miss an inquiry. The right starting point for most businesses.",
-    featured: true,
+    setup: "$799",
+    monthly: "from $299/mo",
+    goal:
+      "Stop losing the leads you already have. Baseline digital presence and local trust, properly set up.",
     features: [
-      "Website development",
-      "AI chatbot",
-      "AI phone answering",
-      "Missed-call text-back",
-      "Online booking",
-      "Google Business setup",
-      "Review generation",
-      "Data backup",
+      {
+        title: "Backup & Foundations",
+        detail: "Hosting, domain, and speed optimisation set up correctly from the start.",
+      },
+      {
+        title: "Website Design",
+        detail: "Responsive, professional, and built around clear calls to action.",
+      },
+      {
+        title: "Missed-Call Text-Back",
+        detail: "If nobody picks up, an instant text goes out and saves the lead.",
+      },
+      {
+        title: "Google Business Profile",
+        detail: "Claimed, filled out, and working for local search.",
+      },
     ],
   },
   {
     name: "Growth",
-    price: "$3,500 – $8,000",
-    retainer: "+ $400–800 / month",
-    tagline: "Everything in Foundation, plus the tools that turn inquiries into booked work faster.",
+    setup: "$1,699",
+    monthly: "from $699/mo",
+    featured: true,
+    goal:
+      "Automate lead capture, earn organic Google reviews, and book jobs without anyone lifting a finger.",
     features: [
-      "Everything in Foundation",
-      "Instant quote tool",
-      "Speed-to-lead response",
-      "Unified inbox",
-      "Lead routing and follow-up",
-      "Email and SMS marketing",
-      "Online payments (Stripe)",
-      "Call tracking and KPI dashboard",
+      { title: "Everything in Foundation" },
+      {
+        title: "AI Web Chatbot",
+        detail:
+          "Trained on your shop's specific FAQs to capture and qualify leads around the clock.",
+      },
+      {
+        title: "Booking & Scheduling",
+        detail:
+          "Chatbot and SMS wired straight into your calendar — Google, Outlook, or your CRM — so customers self-book.",
+      },
+      {
+        title: "Lead Follow-Up & Re-Engagement",
+        detail:
+          "Automated nurture for new leads, plus reactivation campaigns that pull revenue from your old customer list.",
+      },
+      {
+        title: "Review Generation & Response",
+        detail:
+          "Automatic review requests after every job, with AI-assisted drafting for your replies.",
+      },
     ],
   },
   {
-    name: "Partnership",
-    price: "Custom",
-    retainer: "Scoped to the business",
-    tagline: "The full system, for businesses ready to hand over the whole growth engine.",
+    name: "Scale",
+    setup: "$2,399",
+    monthly: "from $1,199/mo",
+    goal:
+      "Full operational autonomy — voice automation and the data to prove exactly what it's returning.",
     features: [
-      "Everything in Growth",
-      "Paid ads management",
-      "Retargeting",
-      "Referral automation",
-      "Invoicing and digital records",
-      "Client portal",
-      "Shop software integration",
-      "Ongoing consulting",
+      { title: "Everything in Foundation & Growth" },
+      {
+        title: "AI Phone Assistant",
+        detail:
+          "A voice agent on your main line that answers questions, pre-qualifies callers, and books straight to the calendar.",
+      },
+      {
+        title: "Lead Retention",
+        detail:
+          "Automation dedicated to preventing churn and running memberships or loyalty workflows.",
+      },
+      {
+        title: "Sales Analytics",
+        detail:
+          "Dashboards for closed revenue, cost per lead, pipeline velocity, and how the system is actually performing.",
+      },
     ],
   },
 ];

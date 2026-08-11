@@ -8,7 +8,7 @@ import PageHeader from "../components/PageHeader";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Transparent packages for local business. Foundation, Growth, and Partnership tiers — every one includes a free audit and monthly reporting.",
+    "Transparent packages for auto shops. Foundation from $799 setup, Growth from $1,699, Scale from $2,399 — every one includes a free audit and monthly reporting.",
 };
 
 const faqs = [
@@ -25,8 +25,12 @@ const faqs = [
     a: "Yes. Your domain, your site, your accounts, your customer data. We'll hand over access and documentation.",
   },
   {
-    q: "Why is there a range instead of a fixed price?",
-    a: "Because a four-page site for a one-location shop and a twelve-page site with booking integration aren't the same job. After the audit you get a fixed number, not a range.",
+    q: "Why is the setup fee fixed but the monthly a starting price?",
+    a: "The build is a defined piece of work, so we can quote it flat. The monthly scales with what the system actually handles — call volume, message volume, how many locations. After the audit you get a fixed number for both, not a range.",
+  },
+  {
+    q: "Can we start at Foundation and move up later?",
+    a: "That's how most shops do it. Foundation stops the immediate leaks, and once you can see what's coming in, it's obvious whether the chatbot or the phone assistant is worth adding. You only pay the difference in setup.",
   },
 ];
 
@@ -36,7 +40,7 @@ export default function PricingPage() {
       <PageHeader
         eyebrow="Pricing"
         title="Start where it counts."
-        lede="Every package includes the audit, monthly reporting, and a real person in Chicago who picks up when you call. We recommend starting at Foundation regardless of size — it's the fastest way to see whether this actually works for you."
+        lede="Every package includes the audit, monthly reporting, and a real person in Chicago who picks up when you call. Most shops land on Growth — it's the point where lead capture, booking, and reviews all run without anyone remembering to do them."
       />
 
       <section className="shell py-20 md:py-24">
@@ -59,17 +63,36 @@ export default function PricingPage() {
                 <h2 className="text-[12px] uppercase tracking-[0.22em] text-electric-400">
                   {tier.name}
                 </h2>
-                <div className="mt-4 text-[28px] font-bold tracking-tight text-white">
-                  {tier.price}
-                </div>
-                <div className="mt-1 text-[13.5px] text-silver-500">{tier.retainer}</div>
-                <p className="mt-5 text-[14.5px] leading-relaxed text-silver-500">{tier.tagline}</p>
 
-                <ul className="mt-8 flex-1 space-y-3 border-t border-white/10 pt-7">
+                {/* Setup and monthly are separate commitments — show them as such
+                    rather than merging into one ambiguous number. */}
+                <div className="mt-4 flex items-baseline gap-2">
+                  <span className="text-[34px] font-bold leading-none tracking-tight text-white">
+                    {tier.setup}
+                  </span>
+                  <span className="text-[13px] text-silver-500">one-time setup</span>
+                </div>
+                <div className="mt-2.5 text-[15px] font-semibold text-silver-200">
+                  {tier.monthly}
+                  <span className="ml-1.5 text-[13px] font-normal text-silver-500">
+                    operational
+                  </span>
+                </div>
+
+                <p className="mt-5 text-[14.5px] leading-relaxed text-silver-500">{tier.goal}</p>
+
+                <ul className="mt-8 flex-1 space-y-4 border-t border-white/10 pt-7">
                   {tier.features.map((f) => (
-                    <li key={f} className="flex gap-3 text-[14.5px] text-silver-300">
-                      <Check size={15} className="mt-0.5 shrink-0 text-electric-500" />
-                      {f}
+                    <li key={f.title} className="flex gap-3">
+                      <Check size={15} className="mt-1 shrink-0 text-electric-500" />
+                      <div>
+                        <div className="text-[14.5px] font-medium text-silver-200">{f.title}</div>
+                        {f.detail && (
+                          <p className="mt-1 text-[13.5px] leading-relaxed text-silver-500">
+                            {f.detail}
+                          </p>
+                        )}
+                      </div>
                     </li>
                   ))}
                 </ul>

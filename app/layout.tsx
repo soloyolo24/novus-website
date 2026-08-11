@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PageWrapper from "./components/PageWrapper";
 import ChatWidget from "./components/ChatWidget";
+import StructuredData from "./components/StructuredData";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -16,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL("https://novussolutions.co"),
   title: {
-    default: "Novus Solutions | AI Systems for Auto Shops in Chicago",
+    default: "Novus Solutions | Technology & Business Growth for Auto Shops",
     template: "%s | Novus Solutions",
   },
   description:
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     "automotive lead follow-up",
   ],
   openGraph: {
-    title: "Novus Solutions | AI Systems for Auto Shops",
+    title: "Novus Solutions | Technology & Business Growth for Auto Shops",
     description:
       "Your shop has an old way. We build the new one. Websites, AI assistants, and follow-up systems for Chicago auto shops.",
     url: "https://novussolutions.co",
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={spaceGrotesk.variable}>
       <body className="bg-ink-900 font-sans">
+        <StructuredData />
         <Navbar />
         <PageWrapper>{children}</PageWrapper>
         <Footer />

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin, Linkedin, Instagram, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, Linkedin, Instagram, ArrowUpRight } from "lucide-react";
 import { services } from "../lib/data";
 import Logo from "./Logo";
 
@@ -22,7 +22,7 @@ export default function Footer() {
           <div>
             <Logo size={32} />
             <p className="mt-5 max-w-[34ch] text-[14.5px] leading-relaxed text-silver-500">
-              AI systems for auto shops. Built in Chicago, for Chicago.
+              Technology and business growth for auto shops. Built in Chicago, for Chicago.
             </p>
             <div className="mt-6 flex gap-3">
               <a
@@ -91,15 +91,6 @@ export default function Footer() {
                 >
                   <Mail size={15} className="text-electric-500" />
                   contact@novussolutions.co
-                </a>
-              </li>
-              <li>
-                <a
-                  href="tel:+13125550000"
-                  className="flex items-center gap-2.5 transition-colors hover:text-white"
-                >
-                  <Phone size={15} className="text-electric-500" />
-                  (312) 555-0000
                 </a>
               </li>
               <li className="flex items-center gap-2.5">

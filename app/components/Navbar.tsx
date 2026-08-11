@@ -42,7 +42,7 @@ export default function Navbar() {
                     border border-white/10 bg-ink-900/60 pl-6 pr-3 backdrop-blur-xl transition-shadow duration-300
                     ${scrolled ? "shadow-[0_10px_40px_rgba(0,0,0,0.55)]" : ""}`}
       >
-        <Logo size={30} />
+        <Logo size={34} showMark={false} />
 
         <ul className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (

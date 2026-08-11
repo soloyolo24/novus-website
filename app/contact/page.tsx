@@ -131,19 +131,6 @@ export default function ContactPage() {
                     </span>
                   </a>
                 </li>
-                <li>
-                  <a href="tel:+13125550000" className="group flex items-start gap-4">
-                    <Phone size={18} className="mt-1 shrink-0 text-electric-500" />
-                    <span>
-                      <span className="block text-[11px] uppercase tracking-[0.16em] text-silver-500">
-                        Phone
-                      </span>
-                      <span className="text-[15.5px] text-white transition-colors group-hover:text-electric-400">
-                        (312) 555-0000
-                      </span>
-                    </span>
-                  </a>
-                </li>
                 <li className="flex items-start gap-4">
                   <MapPin size={18} className="mt-1 shrink-0 text-electric-500" />
                   <span>

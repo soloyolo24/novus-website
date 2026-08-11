@@ -147,7 +147,7 @@ export default function ChatWidget() {
                 </button>
               </div>
               <p className="mt-1 text-[11px] uppercase tracking-[0.14em] text-silver-500">
-                AI Solutions · Chicago
+                Technology & Growth · Chicago
               </p>
             </div>
 
