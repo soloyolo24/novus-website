@@ -141,6 +141,14 @@
       #bebeba 100%
     );
     @apply bg-clip-text text-transparent;
+    /*
+      background-clip:text only paints inside the element's own box. At the
+      tight line-heights the display sizes use, that box stops above the font's
+      descenders, so g/p/y/j get sliced off. A little bottom padding extends the
+      painted area. On inline spans this costs no layout at all; on block
+      headings it adds a few px, which the mt-* spacing absorbs.
+    */
+    padding-bottom: 0.14em;
   }
 
   /* Kept for routes still using the old name. */

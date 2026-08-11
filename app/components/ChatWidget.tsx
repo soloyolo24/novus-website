@@ -60,13 +60,18 @@ export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([GREETING]);
   const [input, setInput] = useState("");
+  /** Waiting on the first byte — shows the "Thinking…" pill. */
   const [loading, setLoading] = useState(false);
+  /** First byte has landed and text is still arriving. */
+  const [streaming, setStreaming] = useState(false);
   const [errored, setErrored] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const showStarters = messages.length === 1 && !loading;
-  const showCta = messages.length > 1 && !loading;
+  const busy = loading || streaming;
+  const showStarters = messages.length === 1 && !busy;
+  const showCta = messages.length > 1 && !busy;
 
+  // Follow the text down as it streams in.
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
@@ -75,7 +80,7 @@ export default function ChatWidget() {
 
   async function send(text: string) {
     const trimmed = text.trim();
-    if (!trimmed || loading) return;
+    if (!trimmed || loading || streaming) return;
 
     const nextMessages: ChatMessage[] = [...messages, { role: "user", content: trimmed }];
     setMessages(nextMessages);
@@ -92,22 +97,61 @@ export default function ChatWidget() {
         }),
       });
 
-      const data = await res.json();
-      if (!res.ok || !data.reply) throw new Error(data?.error ?? "Chat request failed");
+      // Errors still come back as JSON; a success is a plain text stream.
+      if (!res.ok || !res.body || res.headers.get("content-type")?.includes("application/json")) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error ?? "Chat request failed");
+      }
 
-      setMessages((prev) => [...prev, { role: "assistant", content: data.reply }]);
+      // Open an empty bubble, then grow it as bytes arrive.
+      setLoading(false);
+      setStreaming(true);
+      setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let text = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        text += decoder.decode(value, { stream: true });
+        setMessages((prev) => {
+          const next = [...prev];
+          next[next.length - 1] = { role: "assistant", content: text };
+          return next;
+        });
+      }
+
+      if (!text.trim()) {
+        setMessages((prev) => {
+          const next = [...prev];
+          next[next.length - 1] = {
+            role: "assistant",
+            content: "Sorry — I couldn't put that together. Could you try rephrasing?",
+          };
+          return next;
+        });
+      }
     } catch {
       setErrored(true);
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          content:
-            "Sorry — something went wrong on my end. You can reach us directly at contact@novussolutions.co in the meantime.",
-        },
-      ]);
+      const message =
+        "Sorry — something went wrong on my end. You can reach us directly at contact@novussolutions.co in the meantime.";
+
+      setMessages((prev) => {
+        const last = prev[prev.length - 1];
+        // If the stream opened a bubble before failing, fill that one rather
+        // than leaving an empty bubble stranded above the error.
+        if (last?.role === "assistant" && last.content === "") {
+          const next = [...prev];
+          next[next.length - 1] = { role: "assistant", content: message };
+          return next;
+        }
+        return [...prev, { role: "assistant", content: message }];
+      });
     } finally {
       setLoading(false);
+      setStreaming(false);
     }
   }
 
@@ -165,7 +209,19 @@ export default function ChatWidget() {
                         : "rounded-2xl rounded-bl-md border border-white/10 bg-white/[0.05] text-silver-200"
                     }`}
                   >
-                    {m.role === "assistant" ? <FormattedText text={m.content} /> : m.content}
+                    {m.role === "assistant" ? (
+                      <>
+                        <FormattedText text={m.content} />
+                        {streaming && i === messages.length - 1 && (
+                          <span
+                            aria-hidden
+                            className="ml-0.5 inline-block h-[14px] w-[2px] translate-y-[2px] animate-pulse bg-electric-400"
+                          />
+                        )}
+                      </>
+                    ) : (
+                      m.content
+                    )}
                   </div>
                 </div>
               ))}
@@ -228,7 +284,7 @@ export default function ChatWidget() {
                 />
                 <button
                   onClick={() => send(input)}
-                  disabled={loading || !input.trim()}
+                  disabled={busy || !input.trim()}
                   aria-label="Send message"
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-b from-electric-400 to-electric-500 text-ink-950 transition-all hover:scale-105 disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:scale-100"
                 >
