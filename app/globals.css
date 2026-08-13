@@ -20,6 +20,24 @@
     border-radius: 2px;
   }
 
+  /*
+   * Ambient page wash. Two very soft blue pools fixed to the viewport so the
+   * whole page keeps a sense of being lit from somewhere, rather than each
+   * section sitting on flat black. z-index -1 puts it above the body's
+   * background colour but behind all content.
+   */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(1100px 620px at 12% -8%, rgba(77, 139, 255, 0.13), transparent 62%),
+      radial-gradient(900px 520px at 88% 18%, rgba(107, 160, 255, 0.08), transparent 60%),
+      radial-gradient(1000px 700px at 50% 108%, rgba(77, 139, 255, 0.10), transparent 62%);
+  }
+
   /* Film grain — the thing that keeps a dark UI from looking flat. */
   body::after {
     content: "";
@@ -185,9 +203,48 @@
   .bloom {
     position: absolute;
     border-radius: 9999px;
-    background: radial-gradient(circle, rgba(77, 139, 255, 0.16), transparent 62%);
+    background: radial-gradient(circle, rgba(77, 139, 255, 0.24), transparent 62%);
     filter: blur(60px);
     pointer-events: none;
+  }
+
+  /*
+   * A light source for content sections, which otherwise have none. Sits off
+   * to one side; alternate the side down the page so the light reads as
+   * moving through the site rather than repeating.
+   */
+  .section-glow {
+    position: absolute;
+    top: 10%;
+    height: 460px;
+    width: 620px;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(77, 139, 255, 0.16), transparent 65%);
+    filter: blur(90px);
+    pointer-events: none;
+  }
+  .section-glow-l {
+    left: -14%;
+  }
+  .section-glow-r {
+    right: -14%;
+  }
+
+  /* Thin lit edge along a section's top border — reads as light catching a seam. */
+  .horizon {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(107, 160, 255, 0.45) 35%,
+      rgba(107, 160, 255, 0.55) 50%,
+      rgba(107, 160, 255, 0.45) 65%,
+      transparent 100%
+    );
   }
 
   /* Pulls the frame edges back down to black so the centre glow has somewhere to fall off to. */
@@ -195,7 +252,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse 85% 65% at 28% 22%, transparent 0%, rgba(5, 7, 14, 0.55) 100%);
+    background: radial-gradient(ellipse 85% 65% at 28% 22%, transparent 0%, rgba(10, 14, 26, 0.55) 100%);
   }
 
   /* Dissolving dot field — echoes the particle cluster in the Novus mark.

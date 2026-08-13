@@ -30,11 +30,17 @@ export interface Service {
   bullets: string[];
   deliverables: string[];
   timeline: string;
+  /**
+   * Sits behind the card on the homepage, heavily scrimmed. Optional — a
+   * missing file falls through to the plain glass card rather than breaking.
+   */
+  image?: string;
 }
 
 export const services: Service[] = [
   {
     slug: "website-ai-chatbot",
+    image: "/services/website-chatbot.jpg",
     title: "Website + AI Chatbot",
     short: "A fast, modern site with an AI assistant built in that answers and books 24/7.",
     description:
@@ -52,6 +58,7 @@ export const services: Service[] = [
   },
   {
     slug: "ai-phone-assistant",
+    image: "/services/phone-assistant.jpg",
     title: "AI Phone Assistant",
     short: "Answers when you can't — takes messages and books appointments, even after hours.",
     description:
@@ -69,6 +76,7 @@ export const services: Service[] = [
   },
   {
     slug: "lead-follow-up",
+    image: "/services/lead-follow-up.jpg",
     title: "Lead Follow-Up & Re-Engagement",
     short: "Automatic texts and emails so leads don't go cold and past customers come back.",
     description:
@@ -86,6 +94,7 @@ export const services: Service[] = [
   },
   {
     slug: "missed-call-text-back",
+    image: "/services/missed-call.jpg",
     title: "Missed-Call Text-Back",
     short: "Every unanswered call gets an instant text before the caller moves on.",
     description:
@@ -102,6 +111,7 @@ export const services: Service[] = [
   },
   {
     slug: "review-generation",
+    image: "/services/reviews.jpg",
     title: "Review Generation & Response",
     short: "Automated review requests after service, plus AI-assisted responses.",
     description:
@@ -118,6 +128,7 @@ export const services: Service[] = [
   },
   {
     slug: "booking-scheduling",
+    image: "/services/booking.jpg",
     title: "Booking & Scheduling",
     short: "Online booking wired into your calendar, chatbot, and phone assistant.",
     description:

@@ -5,19 +5,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /* ---- Ground: cinematic near-black, cooled toward the brand ---- */
+        /* ---- Ground: dark slate rather than near-black. Lifted one step from
+               the original #05070E floor so panels read as a surface with
+               depth instead of a void. ---- */
         ink: {
-          950: "#05070E", // page floor
-          900: "#080C18", // default background
-          800: "#0E1428", // raised surface
-          700: "#141C36", // card / hover
+          950: "#0B1226", // page floor
+          900: "#121C3A", // default background
+          800: "#1B2950", // raised surface
+          700: "#243466", // card / hover
         },
         /* ---- Legacy navy kept so untouched routes still compile ---- */
         navy: {
-          950: "#05070E",
-          900: "#080C18",
-          800: "#0E1428",
-          700: "#141C36",
+          950: "#0B1226",
+          900: "#121C3A",
+          800: "#1B2950",
+          700: "#243466",
           600: "#4A66B4",
         },
         /* ---- The logo: brushed platinum ---- */
@@ -29,14 +31,16 @@ const config: Config = {
           400: "#BEBEBA",
           500: "#929290",
         },
-        /* ---- Text ---- */
+        /* ---- Text. Each step lifted ~1 rung: silver-500 is the site's default
+               body colour (76 uses), and at the old #7C8AA5 it sat right on the
+               WCAG AA floor against the ground. ---- */
         silver: {
           50: "#FFFFFF",
           100: "#F4F7FC",
-          200: "#E3E9F4",
-          300: "#C6D0E2",
-          400: "#94A3BE",
-          500: "#7C8AA5",
+          200: "#E7ECF6",
+          300: "#D3DBE9",
+          400: "#AEBBD1",
+          500: "#9AA8C0",
         },
         /* ---- The one accent: electric blue ---- */
         electric: {

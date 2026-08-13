@@ -61,8 +61,8 @@ export default function HomePage() {
           className="absolute inset-0 bg-ink-950 bg-cover bg-center"
           style={{
             backgroundImage:
-              "linear-gradient(to bottom, rgba(5,7,14,0.88) 0%, rgba(5,7,14,0.35) 22%, rgba(5,7,14,0.45) 55%, rgba(5,7,14,0.92) 88%, #05070E 100%)," +
-              "radial-gradient(ellipse 60% 45% at 50% 45%, rgba(5,7,14,0.55), transparent 70%)," +
+              "linear-gradient(to bottom, rgba(10,14,26,0.88) 0%, rgba(10,14,26,0.35) 22%, rgba(10,14,26,0.45) 55%, rgba(10,14,26,0.92) 88%, #0A0E1A 100%)," +
+              "radial-gradient(ellipse 60% 45% at 50% 45%, rgba(10,14,26,0.55), transparent 70%)," +
               "url('/hero-shop.jpg')",
           }}
         />
@@ -85,7 +85,7 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal delay={0.16}>
-            <p className="mx-auto mt-8 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-300 [text-shadow:0_1px_16px_rgba(5,7,14,0.9)]">
+            <p className="mx-auto mt-8 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-300 [text-shadow:0_1px_16px_rgba(10,14,26,0.9)]">
               The phone rings out while you&apos;re under a car. An estimate request goes quiet and
               nobody chases it. Nobody chose that setup —{" "}
               <strong className="font-semibold text-white">
@@ -130,7 +130,9 @@ export default function HomePage() {
       <Marquee items={capabilities} />
 
       {/* ---------------- THE SHIFT ---------------- */}
-      <section className="shell py-24 md:py-28">
+      <section className="relative overflow-hidden py-24 md:py-28">
+        <div aria-hidden className="section-glow section-glow-r" />
+        <div className="shell relative">
         <Reveal>
           <SectionHeading
             eyebrow="The shift"
@@ -189,11 +191,14 @@ export default function HomePage() {
             </div>
           </Reveal>
         </div>
+      </div>
       </section>
 
       {/* ---------------- PHONE ASSISTANT ---------------- */}
-      <section className="border-y border-white/10 bg-ink-950/50 py-24 md:py-28">
-        <div className="shell">
+      <section className="relative overflow-hidden border-y border-white/10 bg-ink-950/50 py-24 md:py-28">
+        <div aria-hidden className="horizon" />
+        <div aria-hidden className="section-glow section-glow-l" />
+        <div className="shell relative">
           <Reveal>
             <SectionHeading
               eyebrow="Why shops specifically"
@@ -247,7 +252,9 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- SERVICES ---------------- */}
-      <section className="shell py-24 md:py-28">
+      <section className="relative overflow-hidden py-24 md:py-28">
+        <div aria-hidden className="section-glow section-glow-l" />
+        <div className="shell relative">
         <Reveal>
           <SectionHeading
             eyebrow="What we build"
@@ -263,28 +270,52 @@ export default function HomePage() {
               <Reveal key={service.slug} delay={i * 0.05}>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="card card-hover card-sheen group flex h-full flex-col p-8"
+                  className="card card-hover group relative flex h-full flex-col overflow-hidden p-8"
                 >
-                  <Icon size={22} className="relative text-electric-500" />
-                  <h3 className="relative mt-6 text-[18px] font-semibold leading-snug text-white">
-                    {service.title}
-                  </h3>
-                  <p className="relative mt-3 flex-1 text-[14.5px] leading-relaxed text-silver-500">
-                    {service.short}
-                  </p>
-                  <span className="relative mt-6 inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.14em] text-silver-400 transition-colors group-hover:text-electric-400">
-                    Learn more <ArrowUpRight size={14} />
-                  </span>
+                  {service.image && (
+                    <>
+                      {/* CSS background, not next/image: a file that hasn't been
+                          produced yet degrades to the plain glass card. */}
+                      <span
+                        aria-hidden
+                        className="absolute inset-0 bg-cover bg-center opacity-30 transition-all duration-700 ease-out group-hover:scale-[1.06] group-hover:opacity-55"
+                        style={{ backgroundImage: `url('${service.image}')` }}
+                      />
+                      {/* Scrim. Deliberately flat, not a bottom-heavy hero
+                          gradient: copy fills the whole card here, so every
+                          part of it needs the same protection. */}
+                      <span
+                        aria-hidden
+                        className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/[0.88] to-ink-950/[0.78]"
+                      />
+                    </>
+                  )}
+
+                  <div className="relative flex h-full flex-col">
+                    <Icon size={22} className="text-electric-400" />
+                    <h3 className="mt-6 text-[18px] font-semibold leading-snug text-white">
+                      {service.title}
+                    </h3>
+                    <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-silver-300">
+                      {service.short}
+                    </p>
+                    <span className="mt-6 inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.14em] text-silver-300 transition-colors group-hover:text-electric-400">
+                      Learn more <ArrowUpRight size={14} />
+                    </span>
+                  </div>
                 </Link>
               </Reveal>
             );
           })}
         </div>
+      </div>
       </section>
 
       {/* ---------------- HOW IT STARTS ---------------- */}
-      <section className="border-y border-white/10 bg-ink-950/50 py-24 md:py-28">
-        <div className="shell">
+      <section className="relative overflow-hidden border-y border-white/10 bg-ink-950/50 py-24 md:py-28">
+        <div aria-hidden className="horizon" />
+        <div aria-hidden className="section-glow section-glow-l" />
+        <div className="shell relative">
           <Reveal>
             <SectionHeading
               eyebrow="How it starts"
@@ -314,7 +345,9 @@ export default function HomePage() {
       </section>
 
       {/* ---------------- LOCAL ---------------- */}
-      <section className="shell py-24 md:py-28">
+      <section className="relative overflow-hidden py-24 md:py-28">
+        <div aria-hidden className="section-glow section-glow-r" />
+        <div className="shell relative">
         <div className="grid items-center gap-11 lg:grid-cols-2">
           <Reveal>
             <div>
@@ -347,6 +380,7 @@ export default function HomePage() {
             />
           </Reveal>
         </div>
+      </div>
       </section>
 
       {/* ---------------- CTA ---------------- */}
