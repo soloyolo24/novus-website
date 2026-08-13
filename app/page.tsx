@@ -56,14 +56,25 @@ export default function HomePage() {
           still reads as a finished dark hero before hero-shop.jpg is dropped in
           — a missing file falls through to the gradient instead of breaking.
         */}
+        {/* Photo on its own layer so it can be lifted without also lifting the
+            scrims that sit over it. */}
         <div
           aria-hidden
           className="absolute inset-0 bg-ink-950 bg-cover bg-center"
           style={{
+            backgroundImage: "url('/hero-shop.jpg')",
+            filter: "brightness(1.42) saturate(1.12) contrast(0.96)",
+          }}
+        />
+        {/* Scrims. Lighter than before, and keyed to the *current* ink-950
+            (#0B1226) so the bottom of the hero meets the page with no seam. */}
+        <div
+          aria-hidden
+          className="absolute inset-0"
+          style={{
             backgroundImage:
-              "linear-gradient(to bottom, rgba(10,14,26,0.88) 0%, rgba(10,14,26,0.35) 22%, rgba(10,14,26,0.45) 55%, rgba(10,14,26,0.92) 88%, #0A0E1A 100%)," +
-              "radial-gradient(ellipse 60% 45% at 50% 45%, rgba(10,14,26,0.55), transparent 70%)," +
-              "url('/hero-shop.jpg')",
+              "linear-gradient(to bottom, rgba(11,18,38,0.78) 0%, rgba(11,18,38,0.20) 24%, rgba(11,18,38,0.30) 56%, rgba(11,18,38,0.86) 88%, #0B1226 100%)," +
+              "radial-gradient(ellipse 62% 48% at 50% 45%, rgba(11,18,38,0.48), transparent 72%)",
           }}
         />
         {/* No CSS light shaft here — the photograph supplies its own, from the
@@ -78,14 +89,17 @@ export default function HomePage() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <h1 className="mt-9 max-w-[17ch] text-balance text-display-xl font-bold uppercase leading-[0.95] tracking-[-0.03em]">
-              <span className="text-platinum">Your shop has an old way.</span>{" "}
+            {/* The shadow is load-bearing, not decorative: the photo's light
+                shaft crosses the headline, and without it ~12% of the blue
+                accent's area falls under 4.5:1 contrast. */}
+            <h1 className="mt-9 max-w-[17ch] text-balance text-display-xl font-bold uppercase leading-[0.95] tracking-[-0.03em] [text-shadow:0_2px_28px_rgba(11,18,38,0.92),0_1px_4px_rgba(11,18,38,0.55)]">
+              <span className="text-platinum-hero">Your shop has an old way.</span>{" "}
               <span className="text-electric-400">We build the new one.</span>
             </h1>
           </Reveal>
 
           <Reveal delay={0.16}>
-            <p className="mx-auto mt-8 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-300 [text-shadow:0_1px_16px_rgba(10,14,26,0.9)]">
+            <p className="mx-auto mt-8 max-w-[58ch] text-[16.5px] leading-relaxed text-silver-300 [text-shadow:0_1px_18px_rgba(11,18,38,0.92)]">
               The phone rings out while you&apos;re under a car. An estimate request goes quiet and
               nobody chases it. Nobody chose that setup —{" "}
               <strong className="font-semibold text-white">

@@ -169,6 +169,28 @@
     padding-bottom: 0.14em;
   }
 
+  /*
+   * Compressed platinum, for type sitting on the lit hero photograph.
+   * The standard ramp bottoms out at #929290 — a mid-grey that reads fine on
+   * near-black but goes muddy over a lit background (measured: 18% of the
+   * headline area under 4.5:1). This keeps the same banding positions, so it
+   * still reads as brushed metal, but never drops below #D2D2CF (1.0%).
+   */
+  .text-platinum-hero {
+    background-image: linear-gradient(
+      168deg,
+      #ffffff 0%,
+      #f6f6f4 14%,
+      #fbfbf9 30%,
+      #d2d2cf 50%,
+      #e4e4e1 62%,
+      #fafaf8 80%,
+      #e8e8e5 100%
+    );
+    @apply bg-clip-text text-transparent;
+    padding-bottom: 0.14em;
+  }
+
   /* Kept for routes still using the old name. */
   .text-gradient {
     @apply text-platinum;
