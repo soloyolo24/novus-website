@@ -13,7 +13,7 @@ interface ChatMessage {
 const GREETING: ChatMessage = {
   role: "assistant",
   content:
-    "Welcome to Novus Solutions. Pick a question below to begin, or type your own.",
+    "Hi, I'm NOVA — the Novus Virtual Assistant. Pick a question below to begin, or type your own.",
 };
 
 const STARTER_QUESTIONS = [
@@ -171,15 +171,15 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.97 }}
             transition={{ duration: 0.2 }}
-            className="mb-4 flex h-[72vh] max-h-[560px] w-[92vw] max-w-[390px] flex-col overflow-hidden rounded-3xl border border-white/10 bg-ink-900/90 shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(77,139,255,0.12)] backdrop-blur-2xl"
+            className="mb-4 flex h-[80vh] max-h-[760px] w-[94vw] max-w-[520px] flex-col overflow-hidden rounded-3xl border border-white/10 bg-ink-900/90 shadow-[0_30px_80px_rgba(0,0,0,0.6),0_0_60px_rgba(77,139,255,0.12)] backdrop-blur-2xl"
           >
             {/* Header */}
             <div className="border-b border-white/[0.07] bg-white/[0.03] px-5 py-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <span className="chip-dot" />
-                  <span className="text-[13px] font-semibold uppercase tracking-[0.18em] text-white">
-                    Ask Novus
+                  <span className="text-[14px] font-semibold uppercase tracking-[0.18em] text-white">
+                    NOVA
                   </span>
                 </div>
                 <button
@@ -191,7 +191,7 @@ export default function ChatWidget() {
                 </button>
               </div>
               <p className="mt-1 text-[11px] uppercase tracking-[0.14em] text-silver-500">
-                Technology & Growth · Chicago
+                Novus Virtual Assistant · Chicago
               </p>
             </div>
 
@@ -305,9 +305,12 @@ export default function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close chat" : "Open chat"}
         whileTap={{ scale: 0.94 }}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-electric-400 to-electric-500 text-ink-950 shadow-[0_0_0_1px_rgba(77,139,255,0.5),0_10px_34px_rgba(77,139,255,0.4)] transition-transform hover:scale-105"
+        className="flex h-[60px] items-center justify-center gap-2.5 rounded-full bg-gradient-to-b from-electric-400 to-electric-500 px-7 text-ink-950 shadow-[0_0_0_1px_rgba(77,139,255,0.5),0_14px_44px_rgba(77,139,255,0.45)] transition-transform hover:scale-105"
       >
         {open ? <X size={22} /> : <MessageCircle size={22} />}
+        <span className="text-[15px] font-semibold uppercase tracking-[0.14em]">
+          {open ? "Close" : "Ask NOVA"}
+        </span>
       </motion.button>
     </div>
   );

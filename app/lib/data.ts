@@ -7,6 +7,7 @@ import {
   CalendarCheck,
   Inbox,
   ShieldCheck,
+  BarChart3,
   type LucideIcon,
 } from "lucide-react";
 
@@ -144,7 +145,30 @@ export const services: Service[] = [
     timeline: "1–2 weeks",
   },
   {
+    slug: "sales-analytics",
+    image: "/services/sales-analytics.jpg",
+    title: "Sales Analytics",
+    short: "See what's actually bringing work in — and what a lead is really costing you.",
+    description:
+      "Most shops can tell you how busy they were last month but not where the work came from. We wire up tracking across calls, forms, and follow-up so you can see which channels produce booked jobs, what each lead costs, and how much of your pipeline is sitting unworked. Numbers you can act on, not a dashboard nobody opens.",
+    icon: BarChart3,
+    bullets: [
+      "Lead source tracking from first contact to booked job",
+      "Cost per lead and cost per booked job by channel",
+      "Pipeline visibility — what's open, stalled, or gone cold",
+      "Closed revenue attributed back to where it started",
+      "A monthly report in plain English, not a wall of charts",
+    ],
+    deliverables: [
+      "Tracking and attribution setup",
+      "Owner KPI dashboard",
+      "Monthly performance report",
+    ],
+    timeline: "1–2 weeks",
+  },
+  {
     slug: "unified-inbox",
+    image: "/services/unified-inbox.jpg",
     title: "Unified Inbox",
     short: "Texts, Messenger, Instagram, and Google messages in one place.",
     description:
@@ -161,6 +185,7 @@ export const services: Service[] = [
   },
   {
     slug: "backup-foundations",
+    image: "/services/backup-foundations.jpg",
     title: "Backup & Foundations",
     short: "Automatic backups, secured networks, and business email done properly.",
     description:

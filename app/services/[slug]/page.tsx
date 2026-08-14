@@ -35,6 +35,29 @@ export default async function ServiceDetailPage({
   return (
     <>
       <section className="relative -mt-[72px] overflow-hidden border-b border-white/10">
+        {/* Photo layer, same approach as the home hero: a CSS background so a
+            file that hasn't been produced yet falls through to the gradient
+            treatment rather than leaving a broken frame. */}
+        {service.image && (
+          <>
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-cover bg-center opacity-80"
+              style={{
+                backgroundImage: `url('${service.image}')`,
+                filter: "brightness(1.55) saturate(1.1)",
+              }}
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  "linear-gradient(to bottom, rgba(11,18,38,0.72) 0%, rgba(11,18,38,0.44) 40%, rgba(11,18,38,0.82) 82%, #0B1226 100%)",
+              }}
+            />
+          </>
+        )}
         <div aria-hidden className="light-shaft animate-drift left-auto -right-[220px] -scale-x-100" />
         <div aria-hidden className="bloom -top-52 right-[4%] h-[520px] w-[520px]" />
         <div aria-hidden className="particles" />

@@ -26,22 +26,49 @@ export default function ServicesPage() {
             const Icon = service.icon;
             return (
               <Reveal key={service.slug} delay={(i % 2) * 0.06}>
-                <article id={service.slug} className="card card-hover flex h-full flex-col p-9 scroll-mt-24">
-                  <div className="flex items-start justify-between gap-6">
+                <article
+                  id={service.slug}
+                  className="card card-hover group relative flex h-full flex-col overflow-hidden p-9 scroll-mt-24"
+                >
+                  {service.image && (
+                    <>
+                      {/* CSS background, not next/image: a file that hasn't been
+                          produced yet degrades to the plain glass card. */}
+                      <span
+                        aria-hidden
+                        className="absolute inset-0 bg-cover bg-center opacity-[0.55] transition-all duration-700 ease-out group-hover:scale-[1.05] group-hover:opacity-80"
+                        style={{
+                          backgroundImage: `url('${service.image}')`,
+                          // Shop photography is dark by nature; without a lift it
+                          // disappears entirely under the scrim. Same treatment
+                          // as the home hero.
+                          filter: "brightness(1.55) saturate(1.1)",
+                        }}
+                      />
+                      {/* Flat scrim — copy runs the full height of these cards,
+                          so every part of the photo needs the same protection. */}
+                      <span
+                        aria-hidden
+                        className="absolute inset-0 bg-gradient-to-t from-ink-950/95 via-ink-950/[0.78] to-ink-950/[0.66]"
+                      />
+                    </>
+                  )}
+
+                  <div className="relative z-[1] flex items-start justify-between gap-6">
                     <Icon size={24} className="text-electric-500" />
                     <span className="text-[11px] uppercase tracking-[0.18em] text-silver-500">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
 
-                  <h2 className="mt-7 text-[24px] font-semibold tracking-tight text-white">
+                  <h2 className="relative z-[1] mt-7 text-[24px] font-semibold tracking-tight text-white">
                     {service.title}
                   </h2>
-                  <p className="mt-3.5 text-[15px] leading-relaxed text-silver-400">
+                  <p className="relative z-[1] mt-3.5 text-[15px] leading-relaxed text-silver-400">
                     {service.description}
                   </p>
 
-                  <ul className="mt-7 space-y-2.5">
+                  <ul className="relative z-[1] mt-7 space-y-2.5">
                     {service.bullets.map((bullet) => (
                       <li key={bullet} className="flex gap-3 text-[14px] text-silver-500">
                         <Check size={15} className="mt-0.5 shrink-0 text-electric-500" />
@@ -50,7 +77,7 @@ export default function ServicesPage() {
                     ))}
                   </ul>
 
-                  <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
+                  <div className="relative z-[1] mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-6">
                     <span className="text-[12px] uppercase tracking-[0.14em] text-silver-500">
                       {service.timeline}
                     </span>

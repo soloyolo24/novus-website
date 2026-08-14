@@ -292,15 +292,20 @@ export default function HomePage() {
                           produced yet degrades to the plain glass card. */}
                       <span
                         aria-hidden
-                        className="absolute inset-0 bg-cover bg-center opacity-30 transition-all duration-700 ease-out group-hover:scale-[1.06] group-hover:opacity-55"
-                        style={{ backgroundImage: `url('${service.image}')` }}
+                        className="absolute inset-0 bg-cover bg-center opacity-[0.55] transition-all duration-700 ease-out group-hover:scale-[1.06] group-hover:opacity-80"
+                        style={{
+                          backgroundImage: `url('${service.image}')`,
+                          // Shop photography is dark by nature; without a lift it
+                          // disappears entirely under the scrim.
+                          filter: "brightness(1.55) saturate(1.1)",
+                        }}
                       />
                       {/* Scrim. Deliberately flat, not a bottom-heavy hero
                           gradient: copy fills the whole card here, so every
                           part of it needs the same protection. */}
                       <span
                         aria-hidden
-                        className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/[0.88] to-ink-950/[0.78]"
+                        className="absolute inset-0 bg-gradient-to-t from-ink-950/95 via-ink-950/[0.78] to-ink-950/[0.66]"
                       />
                     </>
                   )}
